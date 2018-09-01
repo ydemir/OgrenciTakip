@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
+using System.Data;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
-namespace OgrenciTakip.UI.Win.Forms.BaseForms
+namespace OgrenciTakip.UI.Win.UserControls.Navigators
 {
-    public partial class BaseKartForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class InsUptNavigator : UserControl
     {
-        public BaseKartForm()
+        public InsUptNavigator()
         {
             InitializeComponent();
-
-         
         }
-
-        
     }
 }
