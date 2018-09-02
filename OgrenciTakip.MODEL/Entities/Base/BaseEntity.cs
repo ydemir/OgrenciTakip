@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OgrenciTakip.MODEL.Entities.Base
 {
-   public class BaseEntityDurum
+   public class BaseEntity
     {
         public long Id { get; set; }
         public string Kod { get; set; }

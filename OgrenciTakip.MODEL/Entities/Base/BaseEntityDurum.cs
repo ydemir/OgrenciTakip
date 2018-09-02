@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OgrenciTakip.MODEL.Entities.Base
 {
-  public  class BaseEntityDurum :BaseEntityDurum
+  public  class BaseEntityDurum :BaseEntity
     {
         public bool Durum { get; set; } = true;
     }
