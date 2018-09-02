@@ -1,4 +1,5 @@
-﻿using OgrenciTakip.BLL.Interfaces;
+﻿using OgrenciTakip.BLL.Functions;
+using OgrenciTakip.BLL.Interfaces;
 using OgrenciTakip.DAL.Interfaces;
 using OgrenciTakip.MODEL.Entities.Base;
 using System;
@@ -25,7 +26,27 @@ namespace OgrenciTakip.BLL.Base
 
         protected TResult BaseSingle<TResult>(Expression<Func<T,bool>> filter,Expression<Func<T,TResult>> selector)
         {
+            //Projemizde 2 modül olacak Yönetim Modulu ve Ogrenci takip Modülü, giriş yaparken iki farklı context olduğu için sürekli değişecek
+            //Her zaman güncel connection string e ihtiyacımız olacaak 
+            //Bu yüzden UnitOfWrok Function ı oluşturduk.
+            //
+            GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
             return _uow.Rep.Find(filter, selector);
+        }
+
+        protected IQueryable<TResult> BaseList<TResult>(Expression<Func<T,bool>>filter,Expression<Func<T,TResult>> selector)
+        {
+            //Her seferinde UnitofWork un instance ını alacaağız çünkü güncel connection string ile işlem yapacağız.
+            GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
+            return _uow.Rep.Select(filter, selector);
+        }
+
+        protected bool BaseInsert(BaseEntity entity,Expression<Func<T,bool>> filter)
+        {
+            GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
+            //Validation işlemleri yapılacak
+
+            _uow.Rep.Insert(entity);
         }
 
 
