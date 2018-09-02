@@ -7,14 +7,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace OgrenciTakip.BLL.General
 {
     public class OkulBll : BaseBll<Okul, OgrenciTakipContext>
     {
-        protected OkulBll() { }
+        public OkulBll() { }
 
-        protected OkulBll(Control ctrl) : base(ctrl) { }
+        public OkulBll(Control ctrl) : base(ctrl) { }
 
         public BaseEntity Single(Expression<Func<Okul,bool>> filter)
         {
@@ -43,7 +44,9 @@ namespace OgrenciTakip.BLL.General
                 IlAdi=x.Il.IlAdi,
                 IlceAdi=x.Ilce.IlceAdi,
                 Aciklama=x.Aciklama
-            });
+                //IQuerable olduğu için sql sorgusu gelir bu yüzden aşağıdaki kodu ekleyip list olarak kod a göre getiriyoruz.
+                //BaseBll deki methodda tolist dememizin nedeni iquerable dönüyor. veritabanından çekmeden kod a göre sırala çek dedik
+            }).OrderBy(x=>x.Kod).ToList();
         }
 
         public bool Insert(BaseEntity entity)
