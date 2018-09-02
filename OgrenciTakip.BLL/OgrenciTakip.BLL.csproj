@@ -56,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OgrenciTakip.COMMON\OgrenciTakip.COMMON.csproj">
+      <Project>{F751813C-0358-482D-A919-223DD279D5DF}</Project>
+      <Name>OgrenciTakip.COMMON</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OgrenciTakip.DAL\OgrenciTakip.DAL.csproj">
       <Project>{C91955D3-0494-4164-9628-8F6DE54D9EC1}</Project>
       <Name>OgrenciTakip.DAL</Name>

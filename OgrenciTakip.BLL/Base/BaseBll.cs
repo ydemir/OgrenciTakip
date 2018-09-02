@@ -1,5 +1,8 @@
 ﻿using OgrenciTakip.BLL.Functions;
 using OgrenciTakip.BLL.Interfaces;
+using OgrenciTakip.COMMON.Enums;
+using OgrenciTakip.COMMON.Functions;
+using OgrenciTakip.COMMON.Message;
 using OgrenciTakip.DAL.Interfaces;
 using OgrenciTakip.MODEL.Entities.Base;
 using System;
@@ -53,41 +56,57 @@ namespace OgrenciTakip.BLL.Base
             return _uow.Save();
         }
 
-        //protected bool BaseUpdated(BaseEntity oldEntity,BaseEntity currentEntity,Expression<Func<T,bool>> filter)
-        //{
-        //    GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
-        //    //Validation
-
-        //    var degisenAlanlar=
-        //}
-
-
-
-
-        #region IDisposable Support
-        private bool disposedValue = false;
-       
-
-        protected virtual void Dispose(bool disposing)
+        protected bool BaseUpdated(BaseEntity oldEntity, BaseEntity currentEntity, Expression<Func<T, bool>> filter)
         {
-            if (!disposedValue)
+            GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
+            //Validation
+
+            var degisenAlanlar = oldEntity.DegisenAlanlariGetir(currentEntity);
+
+            //Gelen currentEntity i TEntity e çevirmemiz lazım.
+
+            //değişenler yoksa  liste olarak gelcek 
+            if (degisenAlanlar.Count==0)
             {
-                if (disposing)
-                {
-              
-                }
-
-            
-
-                disposedValue = true;
+                //false yaparsak sanki database de hata var o yüzden geri dönüyor gibi bir durum oluyor
+                return true;
             }
+            _uow.Rep.Update(currentEntity.EntityConvert<T>(), degisenAlanlar);
+
+          
+            return _uow.Save();
         }
 
+        protected bool BaseDelete(BaseEntity entity,KartTuru kartTuru,bool mesajVer = true)
+        {
+            GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
+
+            if (mesajVer)
+            {
+                if (Messages.SilMesaj(kartTuru.ToName())!=DialogResult.Yes)
+                {
+                    return false;
+                }
+            }
+
+            _uow.Rep.Delete(entity.EntityConvert<T>());
+            return _uow.Save();
+        }
+
+
+
+
+        #region IDisposable dispose
+
+       
+
+  
   
         public void Dispose()
         {
-           
-            Dispose(true);
+            //komple bll i dispose edersek hata alırız sadece unitofwork  u dispose edeceğiz.
+            _ctrl?.Dispose();
+            _uow.Dispose();
          
 
         }
