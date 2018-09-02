@@ -14,8 +14,8 @@ namespace OgrenciTakip.DAL.Interfaces
         void Update(IEnumerable<T> entities);
         void Delete(T entity);
         void Delete(IEnumerable<T> entites);
-        TResult Find<TResult>(Expression<Func<T, bool>> filter);
-        IQueryable<TResult> Select<TResult>(Expression<Func<T, bool>> filter);
+        TResult Find<TResult>(Expression<Func<T, bool>> filter,Expression<Func<T,TResult>> selector);
+        IQueryable<TResult> Select<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> selector);
 
     }
 }
