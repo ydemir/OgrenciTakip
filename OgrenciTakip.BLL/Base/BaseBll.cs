@@ -56,7 +56,7 @@ namespace OgrenciTakip.BLL.Base
             return _uow.Save();
         }
 
-        protected bool BaseUpdated(BaseEntity oldEntity, BaseEntity currentEntity, Expression<Func<T, bool>> filter)
+        protected bool BaseUpdate(BaseEntity oldEntity, BaseEntity currentEntity, Expression<Func<T, bool>> filter)
         {
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
             //Validation
