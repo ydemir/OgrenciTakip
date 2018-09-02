@@ -56,6 +56,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OgrenciTakip.COMMON\OgrenciTakip.COMMON.csproj">
+      <Project>{f751813c-0358-482d-a919-223dd279d5df}</Project>
+      <Name>OgrenciTakip.COMMON</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

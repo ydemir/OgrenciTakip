@@ -1,4 +1,5 @@
-﻿using OgrenciTakip.DAL.Interfaces;
+﻿using OgrenciTakip.COMMON.Message;
+using OgrenciTakip.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -33,26 +34,59 @@ namespace OgrenciTakip.DAL.Base
                 var sqlEx =(SqlException) ex.InnerException?.InnerException;
                 if (sqlEx==null)
                 {
-
+                    Messages.HataMesaji(ex.Message);
+                    return false;
                 }
+
+                switch (sqlEx.Number)
+                {
+                    case 208:
+                        Messages.HataMesaji("İşlem Yapmak İstediğiniz Tablo Veritabanında Bulunamadı");
+                        break;
+                    case 547:
+                        Messages.HataMesaji("Seçilen Kartın İşlem Görmüş Hareketleri Var Silinemez.");
+                        break;
+                    case 2601:
+                    case 2627:
+                        Messages.HataMesaji("Girmiş Olduğunuz Id Daha Önce Kullanılmıştır.");
+                        break;
+                    case 4060:
+                        Messages.HataMesaji("İşlem Yapmak İstediğiniz Veritabanı Sunucuda Bulunamadı.");
+                        break;
+                    case 18456:
+                        Messages.HataMesaji("Server'a Bağlanılmak İstenen Kullanıcı Adı ve Şifre Hatalıdır.");
+                        break;
+                    default:
+                        Messages.HataMesaji(sqlEx.Message);
+                        break;
+                }
+                return false;
             }
+
+            catch(Exception ex)
+            {
+                Messages.HataMesaji(ex.Message);
+                return false;
+
+            }
+            return true;
         }
 
-        #region IDisposable Support
-        private bool disposedValue = false;
+        #region Dispose
+        private bool _disposedValue = false;
         
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (!_disposedValue)
             {
                 if (disposing)
                 {
-                
+                    _context.Dispose();
                 }
 
 
-                disposedValue = true;
+                _disposedValue = true;
             }
         }
 
@@ -62,6 +96,7 @@ namespace OgrenciTakip.DAL.Base
         {
     
             Dispose(true);
+            GC.SuppressFinalize(this);
       
         }
         #endregion

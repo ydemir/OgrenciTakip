@@ -30,8 +30,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +49,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BaseBll.cs" />
+    <Compile Include="Functions\GeneralFunctions.cs" />
+    <Compile Include="Interfaces\IBaseBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OgrenciTakip.DAL\OgrenciTakip.DAL.csproj">
+      <Project>{C91955D3-0494-4164-9628-8F6DE54D9EC1}</Project>
+      <Name>OgrenciTakip.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OgrenciTakip.DATA\OgrenciTakip.DATA.csproj">
+      <Project>{bede880a-379b-4730-b9d7-993a36d21f63}</Project>
+      <Name>OgrenciTakip.DATA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OgrenciTakip.MODEL\OgrenciTakip.MODEL.csproj">
+      <Project>{A3291BA0-3218-4E53-A5E9-5B45CB35A9EE}</Project>
+      <Name>OgrenciTakip.MODEL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
