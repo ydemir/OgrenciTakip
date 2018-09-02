@@ -46,8 +46,20 @@ namespace OgrenciTakip.BLL.Base
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
             //Validation işlemleri yapılacak
 
-            _uow.Rep.Insert(entity);
+            //Convert işlemi yapıp o şekilde gönderecektik.
+
+            //Repository imizi OgrenciTakipContext de tanımlanmış olan Entity lerden bir tanesine cast ederek gönderdik.
+            _uow.Rep.Insert(entity.EntityConvert<T>());
+            return _uow.Save();
         }
+
+        //protected bool BaseUpdated(BaseEntity oldEntity,BaseEntity currentEntity,Expression<Func<T,bool>> filter)
+        //{
+        //    GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
+        //    //Validation
+
+        //    var degisenAlanlar=
+        //}
 
 
 
