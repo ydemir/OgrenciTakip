@@ -2,6 +2,7 @@
 using DevExpress.XtraGrid.Views.Grid;
 using OgrenciTakip.COMMON.Enums;
 using OgrenciTakip.COMMON.Message;
+using OgrenciTakip.MODEL.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace OgrenciTakip.UI.Win.Functions
 {
-   public static class GeneralFunctions
+    public static class GeneralFunctions
     {
         public static long GetRowId(this GridView tablo)
         {
-            if (tablo.FocusedRowHandle>-1) 
+            if (tablo.FocusedRowHandle > -1)
             {
                 return (long)tablo.GetFocusedRowCellValue("Id");
             }
@@ -23,9 +24,9 @@ namespace OgrenciTakip.UI.Win.Functions
             return -1;
         }
 
-        public static T GetRow<T>(this GridView tablo,bool mesajVer = true)
+        public static T GetRow<T>(this GridView tablo, bool mesajVer = true)
         {
-            if (tablo.FocusedRowHandle>-1)
+            if (tablo.FocusedRowHandle > -1)
             {
                 return (T)tablo.GetRow(tablo.FocusedRowHandle);
             }
@@ -36,9 +37,9 @@ namespace OgrenciTakip.UI.Win.Functions
             return default(T);
         }
 
-        private static VeriDegisimYeri VeriDegisimYeriGetir<T>(T oldEntity,T currentEntity)
+        private static VeriDegisimYeri VeriDegisimYeriGetir<T>(T oldEntity, T currentEntity)
         {
-          
+
             //foreach i reflection yaparak dolaşıyoruz.
             foreach (var prop in currentEntity.GetType().GetProperties())
             {
@@ -77,7 +78,7 @@ namespace OgrenciTakip.UI.Win.Functions
             return VeriDegisimYeri.VeriDegisimiYok;
         }
 
-        public static void ButtonEnabledDurumu<T>(BarButtonItem btnYeni,BarButtonItem btnKaydet, BarButtonItem btnGeriAl, BarButtonItem btnSil,T oldEntity,T currentEntity)
+        public static void ButtonEnabledDurumu<T>(BarButtonItem btnYeni, BarButtonItem btnKaydet, BarButtonItem btnGeriAl, BarButtonItem btnSil, T oldEntity, T currentEntity)
         {
             var veriDegisimYeri = VeriDegisimYeriGetir(oldEntity, currentEntity);
             var buttonEnabledDurumu = veriDegisimYeri == VeriDegisimYeri.Alan;
@@ -87,5 +88,49 @@ namespace OgrenciTakip.UI.Win.Functions
             btnYeni.Enabled = !buttonEnabledDurumu;
             btnSil.Enabled = !buttonEnabledDurumu;
         }
+
+        public static long IdOlustur(this IslemTuru IslemTuru, BaseEntity selectedEntity)
+        {
+            //2018 9 4 00 32 50 55 654
+
+            string SifirEkle(string deger)
+            {
+                if (deger.Length==1)
+                {
+                    return "0" + deger;
+                }
+                return deger;
+            }
+
+            string UcBasamakYap(string deger)
+            {
+                switch (deger.Length)
+                {
+                    case 1:
+                        return "00" + deger;
+                    case 2:
+                        return "0" + deger;
+
+                       
+                }
+                return deger;
+            }
+
+            string Id()
+            {
+                var yil = SifirEkle(DateTime.Now.Date.Year.ToString());
+                var ay = SifirEkle(DateTime.Now.Date.Month.ToString());
+                var gun = SifirEkle(DateTime.Now.Date.Day.ToString());
+                var saat = SifirEkle(DateTime.Now.Date.Hour.ToString());
+                var dakika = SifirEkle(DateTime.Now.Date.Minute.ToString());
+                var saniye = SifirEkle(DateTime.Now.Date.Second.ToString());
+                var milisaniye = UcBasamakYap(DateTime.Now.Date.Millisecond.ToString());
+                var random = SifirEkle(new Random().Next(0, 99).ToString());
+
+                return yil + ay + gun + saat + dakika + saniye + milisaniye + random;
+            }
+            return IslemTuru == IslemTuru.EntityUpdate ? selectedEntity.Id : long.Parse(Id());
+        }
     }
 }
+

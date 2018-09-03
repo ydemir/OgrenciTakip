@@ -13,6 +13,7 @@ using DevExpress.XtraBars;
 using OgrenciTakip.UI.Win.UserControls.Controls;
 using OgrenciTakip.BLL.Interfaces;
 using OgrenciTakip.MODEL.Entities.Base;
+using OgrenciTakip.UI.Win.Functions;
 
 namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
@@ -40,6 +41,21 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             {
                 button.ItemClick += Button_ItemClick;
             }
+
+            //Form Events
+
+            Load += BaseEditForm_Load;
+        }
+
+        private void BaseEditForm_Load(object sender, EventArgs e)
+        {
+            IsLoaded = true;
+            GuncelNesneOlustur();
+            //SablonYukle();
+            //ButonGizleGoster();
+            Id = IslemTuru.IdOlustur(OldEntity);
+
+            //Guncelleme yapılacak
         }
 
         private void Button_ItemClick(object sender, ItemClickEventArgs e)
@@ -90,9 +106,10 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
         protected virtual void NesneyiControllereBagla() { }
         protected virtual void GuncelNesneOlustur() { }
-        protected internal virtual void ButtonEnableDurumu()
+        protected internal virtual void ButtonEnabledDurumu()
         {
             if (!IsLoaded) return;
+            GeneralFunctions.ButtonEnabledDurumu(btnYeni, btnKaydet, btnGeriAl, btnSil, OldEntity, CurrentEntity);
 
         }
 

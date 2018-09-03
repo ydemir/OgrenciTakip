@@ -58,9 +58,9 @@ namespace OgrenciTakip.UI.Win.Forms.OkulForms
                 IlceId = Convert.ToInt64(txtIlce.Id),
                 Aciklama = txtAciklama.Text,
                 Durum = tglDurum.IsOn
-            }; 
+            };
 
-
+            ButtonEnabledDurumu();
         }
 
 
