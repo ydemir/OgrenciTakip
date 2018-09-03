@@ -9,6 +9,10 @@ namespace OgrenciTakip.COMMON.Message
         {
             XtraMessageBox.Show(hataMesaji, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        public static void UyariMesaji(string uyariMesaji)
+        {
+            XtraMessageBox.Show(uyariMesaji, "Uyari", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
         public static DialogResult EvetSeciliEvetHayir(string mesaj, string baslik)
         {
@@ -23,6 +27,10 @@ namespace OgrenciTakip.COMMON.Message
         public static DialogResult SilMesaj(string kartAdi)
         {
             return HayirSeciliEvetHayir($"Seçtiğiniz {kartAdi} Silinecektir. Onaylıyor musunuz ?", "Silme Onayı");
+        }
+        public static void KartSecmemeUyariMesaji()
+        {
+            UyariMesaji("Lütfen Bir Kart Seçiniz.");
         }
 
     }

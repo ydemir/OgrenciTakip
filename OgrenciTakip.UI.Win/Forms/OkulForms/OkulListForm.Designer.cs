@@ -1,6 +1,6 @@
 ﻿namespace OgrenciTakip.UI.Win.Forms.OkulForms
 {
-    partial class OkulKartlari
+    partial class OkulListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             this.tablo = new OgrenciTakip.UI.Win.UserControls.Grid.MyGridView();
             this.colId = new OgrenciTakip.UI.Win.UserControls.Grid.MyGridColumn();
             this.colKod = new OgrenciTakip.UI.Win.UserControls.Grid.MyGridColumn();
-            this.longNavigator1 = new OgrenciTakip.UI.Win.UserControls.Navigators.LongNavigator();
+            this.longNavigator = new OgrenciTakip.UI.Win.UserControls.Navigators.LongNavigator();
             this.colOkulAdi = new OgrenciTakip.UI.Win.UserControls.Grid.MyGridColumn();
             this.colIlAdi = new OgrenciTakip.UI.Win.UserControls.Grid.MyGridColumn();
             this.colIlceAdi = new OgrenciTakip.UI.Win.UserControls.Grid.MyGridColumn();
@@ -120,11 +120,11 @@
             // 
             // longNavigator1
             // 
-            this.longNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.longNavigator1.Location = new System.Drawing.Point(0, 544);
-            this.longNavigator1.Name = "longNavigator1";
-            this.longNavigator1.Size = new System.Drawing.Size(1104, 24);
-            this.longNavigator1.TabIndex = 3;
+            this.longNavigator.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.longNavigator.Location = new System.Drawing.Point(0, 544);
+            this.longNavigator.Name = "longNavigator";
+            this.longNavigator.Size = new System.Drawing.Size(1104, 24);
+            this.longNavigator.TabIndex = 3;
             // 
             // colOkulAdi
             // 
@@ -184,10 +184,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 599);
             this.Controls.Add(this.grid);
-            this.Controls.Add(this.longNavigator1);
+            this.Controls.Add(this.longNavigator);
             this.Name = "OkulKartlari";
             this.Text = "Okul Kartlari";
-            this.Controls.SetChildIndex(this.longNavigator1, 0);
+            this.Controls.SetChildIndex(this.longNavigator, 0);
             this.Controls.SetChildIndex(this.grid, 0);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablo)).EndInit();
@@ -202,7 +202,7 @@
         private UserControls.Grid.MyGridView tablo;
         private UserControls.Grid.MyGridColumn colId;
         private UserControls.Grid.MyGridColumn colKod;
-        private UserControls.Navigators.LongNavigator longNavigator1;
+        private UserControls.Navigators.LongNavigator longNavigator;
         private UserControls.Grid.MyGridColumn colOkulAdi;
         private UserControls.Grid.MyGridColumn colIlAdi;
         private UserControls.Grid.MyGridColumn colIlceAdi;
