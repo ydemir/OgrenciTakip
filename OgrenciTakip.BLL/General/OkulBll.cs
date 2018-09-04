@@ -67,7 +67,7 @@ namespace OgrenciTakip.BLL.General
 
         public string YeniKodVer()
         {
-            throw new NotImplementedException();
+            return BaseYeniKodVer(COMMON.Enums.KartTuru.Okul, x => x.Kod);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OgrenciTakip.COMMON.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -16,6 +17,7 @@ namespace OgrenciTakip.DAL.Interfaces
         void Delete(IEnumerable<T> entites);
         TResult Find<TResult>(Expression<Func<T, bool>> filter,Expression<Func<T,TResult>> selector);
         IQueryable<TResult> Select<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> selector);
+        string YeniKodVer(KartTuru kartTuru, Expression<Func<T, string>> filter, Expression<Func<T, bool>> where = null);
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using OgrenciTakip.DAL.Interfaces;
+﻿using OgrenciTakip.COMMON.Enums;
+using OgrenciTakip.COMMON.Functions;
+using OgrenciTakip.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -110,6 +112,59 @@ namespace OgrenciTakip.DAL.Base
             Dispose(true);
             GC.SuppressFinalize(this);
         
+        }
+
+        public string YeniKodVer(KartTuru kartTuru, Expression<Func<T, string>> filter, Expression<Func<T, bool>> where = null)
+        {
+            string Kod()
+            {
+                string kod = null;
+                var kodDizi = kartTuru.ToName().Split(' ');
+
+                for (int i = 0; i < kodDizi.Length -1; i++)
+                {
+                    kod += kodDizi[i];
+
+                    if (i+1<kodDizi.Length-1)
+                    {
+                        kod += " ";
+                    }
+                }
+
+                return kod += "-0001";
+            }
+
+            string YeniKodVer(string kod)
+            {
+                var sayisalDegerler = "";
+
+                foreach (var karakter in kod)
+                {
+                    if (char.IsDigit(karakter))
+                    {
+                        sayisalDegerler += karakter;
+                    }
+                    else
+                    {
+                        sayisalDegerler = "";
+                    }
+                }
+
+                var artisSonrasiDeger = (int.Parse(sayisalDegerler) + 1).ToString();
+                var fark = kod.Length - artisSonrasiDeger.Length;
+                if (fark<0)
+                {
+                    fark = 0;
+                }
+                var yeniDeger = kod.Substring(0, fark);
+                yeniDeger += artisSonrasiDeger;
+
+                return yeniDeger;
+            }
+
+            var maxKod = where == null ? _dbSet.Max(filter) : _dbSet.Where(where).Max(filter);
+
+            return maxKod == null ? Kod() : YeniKodVer(maxKod);
         }
         #endregion
     }

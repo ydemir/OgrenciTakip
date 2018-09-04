@@ -89,7 +89,7 @@
             this.myDataLayoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.myDataLayoutControl.Root = this.layoutControlGroup;
             this.myDataLayoutControl.Size = new System.Drawing.Size(390, 166);
-            this.myDataLayoutControl.TabIndex = 2;
+            this.myDataLayoutControl.TabIndex = 0;
             this.myDataLayoutControl.Text = "myDataLayoutControl1";
             // 
             // txtAciklama
@@ -104,7 +104,7 @@
             this.txtAciklama.Size = new System.Drawing.Size(306, 46);
             this.txtAciklama.StatusBarAciklama = "Açıklama Giriniz.";
             this.txtAciklama.StyleController = this.myDataLayoutControl;
-            this.txtAciklama.TabIndex = 9;
+            this.txtAciklama.TabIndex = 3;
             // 
             // tglDurum
             // 
@@ -122,7 +122,7 @@
             this.tglDurum.Size = new System.Drawing.Size(97, 20);
             this.tglDurum.StatusBarAciklama = "Kartın Kullanım Durumunu Seçiniz";
             this.tglDurum.StyleController = this.myDataLayoutControl;
-            this.tglDurum.TabIndex = 8;
+            this.tglDurum.TabIndex = 4;
             // 
             // txtIlce
             // 
@@ -141,7 +141,7 @@
             this.txtIlce.StatusBarKisaYol = "F4";
             this.txtIlce.StatusBarKisaYolAciklama = null;
             this.txtIlce.StyleController = this.myDataLayoutControl;
-            this.txtIlce.TabIndex = 7;
+            this.txtIlce.TabIndex = 2;
             // 
             // txtIl
             // 
@@ -160,7 +160,7 @@
             this.txtIl.StatusBarKisaYol = "F4";
             this.txtIl.StatusBarKisaYolAciklama = null;
             this.txtIl.StyleController = this.myDataLayoutControl;
-            this.txtIl.TabIndex = 6;
+            this.txtIl.TabIndex = 1;
             // 
             // txtOkulAdi
             // 
@@ -174,7 +174,7 @@
             this.txtOkulAdi.Size = new System.Drawing.Size(306, 20);
             this.txtOkulAdi.StatusBarAciklama = null;
             this.txtOkulAdi.StyleController = this.myDataLayoutControl;
-            this.txtOkulAdi.TabIndex = 5;
+            this.txtOkulAdi.TabIndex = 0;
             // 
             // txtKod
             // 
@@ -192,7 +192,7 @@
             this.txtKod.Size = new System.Drawing.Size(136, 20);
             this.txtKod.StatusBarAciklama = "Kod Giriniz.";
             this.txtKod.StyleController = this.myDataLayoutControl;
-            this.txtKod.TabIndex = 4;
+            this.txtKod.TabIndex = 5;
             // 
             // layoutControlGroup
             // 
