@@ -31,6 +31,14 @@ namespace OgrenciTakip.UI.Win.Forms.OkulForms
         protected internal override void Yukle()
         {
             OldEntity = IslemTuru == COMMON.Enums.IslemTuru.EntityInsert ? new OkulS() : ((OkulBll)Bll).Single(FilterFunctions.Filter<Okul>(Id));
+            NesneyiControllereBagla();
+
+            if (IslemTuru!=COMMON.Enums.IslemTuru.EntityInsert)
+            {
+                return;
+            }
+            txtKod.Text = ((OkulBll)Bll).YeniKodVer();
+            txtOkulAdi.Focus();
         }
 
         protected override void NesneyiControllereBagla()

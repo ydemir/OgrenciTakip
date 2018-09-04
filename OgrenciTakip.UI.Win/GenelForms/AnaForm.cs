@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using OgrenciTakip.UI.Win.Forms.OkulForms;
+using OgrenciTakip.UI.Win.Show;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
@@ -37,10 +38,13 @@ namespace OgrenciTakip.UI.Win.GenelForms
         {
             if (e.Item==btnOkulKartlari)
             {
-                OkulListForm frm = new OkulListForm();
-                frm.MdiParent = ActiveForm;
-                frm.Show();
+                ShowListForms<OkulListForm>.ShowListForm(COMMON.Enums.KartTuru.Okul);
+                //OkulListForm frm = new OkulListForm();
+                //frm.MdiParent = ActiveForm;
+                //frm.Show();
             }
         }
+
+      
     }
 }

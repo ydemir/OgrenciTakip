@@ -46,7 +46,7 @@
             this.ribbonControl.ExpandCollapseItem,
             this.btnOkulKartlari});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 3;
+            this.ribbonControl.MaxItemId = 4;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -56,7 +56,7 @@
             // btnOkulKartlari
             // 
             this.btnOkulKartlari.Caption = "Okul Kartları";
-            this.btnOkulKartlari.Id = 2;
+            this.btnOkulKartlari.Id = 3;
             this.btnOkulKartlari.Name = "btnOkulKartlari";
             // 
             // ribbonPage1
