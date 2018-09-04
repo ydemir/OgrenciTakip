@@ -137,9 +137,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtIlce.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtIlce.Size = new System.Drawing.Size(136, 20);
-            this.txtIlce.StatusBarAciklama = null;
+            this.txtIlce.StatusBarAciklama = "İlçe Seçiniz";
             this.txtIlce.StatusBarKisaYol = "F4";
-            this.txtIlce.StatusBarKisaYolAciklama = null;
+            this.txtIlce.StatusBarKisaYolAciklama = "İlçe Seç";
             this.txtIlce.StyleController = this.myDataLayoutControl;
             this.txtIlce.TabIndex = 2;
             // 
@@ -156,9 +156,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtIl.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtIl.Size = new System.Drawing.Size(136, 20);
-            this.txtIl.StatusBarAciklama = null;
+            this.txtIl.StatusBarAciklama = "İl Seçiniz.";
             this.txtIl.StatusBarKisaYol = "F4";
-            this.txtIl.StatusBarKisaYolAciklama = null;
+            this.txtIl.StatusBarKisaYolAciklama = "İl Seç";
             this.txtIl.StyleController = this.myDataLayoutControl;
             this.txtIl.TabIndex = 1;
             // 
@@ -172,7 +172,7 @@
             this.txtOkulAdi.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtOkulAdi.Properties.MaxLength = 50;
             this.txtOkulAdi.Size = new System.Drawing.Size(306, 20);
-            this.txtOkulAdi.StatusBarAciklama = null;
+            this.txtOkulAdi.StatusBarAciklama = "Okul Adı Giriniz.";
             this.txtOkulAdi.StyleController = this.myDataLayoutControl;
             this.txtOkulAdi.TabIndex = 0;
             // 

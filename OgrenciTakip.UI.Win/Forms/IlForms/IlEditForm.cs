@@ -10,46 +10,41 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using OgrenciTakip.UI.Win.Forms.BaseForms;
 using OgrenciTakip.BLL.General;
-using OgrenciTakip.MODEL.Dto;
-using OgrenciTakip.UI.Win.Functions;
 using OgrenciTakip.MODEL.Entities;
+using OgrenciTakip.UI.Win.Functions;
 
-namespace OgrenciTakip.UI.Win.Forms.OkulForms
+namespace OgrenciTakip.UI.Win.Forms.IlForms
 {
-    public partial class OkulEditForm : BaseEditForm
+    public partial class IlEditForm : BaseEditForm
     {
-        public OkulEditForm()
+        public IlEditForm()
         {
             InitializeComponent();
 
             DataLayoutControl = myDataLayoutControl;
-            Bll = new OkulBll(myDataLayoutControl);
-            BaseKartTuru = COMMON.Enums.KartTuru.Okul;
+            Bll = new IlBll(myDataLayoutControl);
+            BaseKartTuru = COMMON.Enums.KartTuru.Il;
             EventsLoad();
         }
 
         protected internal override void Yukle()
         {
-            OldEntity = BaseIslemTuru == COMMON.Enums.IslemTuru.EntityInsert ? new OkulS() : ((OkulBll)Bll).Single(FilterFunctions.Filter<Okul>(Id));
+            OldEntity = BaseIslemTuru == COMMON.Enums.IslemTuru.EntityInsert ? new Il() : ((IlBll)Bll).Single(FilterFunctions.Filter<Il>(Id));
             NesneyiControllereBagla();
 
-            if (BaseIslemTuru!=COMMON.Enums.IslemTuru.EntityInsert)
+            if (BaseIslemTuru != COMMON.Enums.IslemTuru.EntityInsert)
             {
                 return;
             }
             txtKod.Text = ((OkulBll)Bll).YeniKodVer();
-            txtOkulAdi.Focus();
+            txtIlAdi.Focus();
         }
 
         protected override void NesneyiControllereBagla()
         {
-            var entity = (OkulS)OldEntity;
+            var entity = (Il)OldEntity;
             txtKod.Text = entity.Kod;
-            txtOkulAdi.Text = entity.OkulAdi;
-            txtIl.Id = entity.IlId;
-            txtIl.Text = entity.IlAdi;
-            txtIlce.Id = entity.IlceId;
-            txtIlce.Text = entity.IlceAdi;
+            txtIlAdi.Text = entity.IlAdi;
             txtAciklama.Text = entity.Aciklama;
             tglDurum.IsOn = entity.Durum;
 
@@ -57,24 +52,16 @@ namespace OgrenciTakip.UI.Win.Forms.OkulForms
 
         protected override void GuncelNesneOlustur()
         {
-            CurrentEntity = new Okul
+            CurrentEntity = new Il
             {
                 Id = Id,
                 Kod = txtKod.Text,
-                OkulAdi = txtOkulAdi.Text,
-                IlId = Convert.ToInt64(txtIl.Id),
-                IlceId = Convert.ToInt64(txtIlce.Id),
+                IlAdi = txtIlAdi.Text,
                 Aciklama = txtAciklama.Text,
                 Durum = tglDurum.IsOn
             };
 
             ButtonEnabledDurumu();
         }
-
-
-
-
-
-
     }
 }

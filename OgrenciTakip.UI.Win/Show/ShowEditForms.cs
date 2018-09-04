@@ -18,7 +18,7 @@ namespace OgrenciTakip.UI.Win.Show
             //showdialog formları disposable olduğu için using ile yapıyoruz.
             using (var frm = (TForm)Activator.CreateInstance(typeof(TForm)))
             {
-                frm.IslemTuru = id > 0 ? IslemTuru.EntityUpdate : IslemTuru.EntityInsert;
+                frm.BaseIslemTuru = id > 0 ? IslemTuru.EntityUpdate : IslemTuru.EntityInsert;
                 frm.Id = id;
                 frm.Yukle();
                 frm.ShowDialog();

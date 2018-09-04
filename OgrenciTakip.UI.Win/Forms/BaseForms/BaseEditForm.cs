@@ -20,12 +20,12 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseEditForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        protected internal IslemTuru IslemTuru;
+        protected internal IslemTuru BaseIslemTuru;
         protected internal long Id;
         protected internal bool RefreshYapilacak;
         protected MyDataLayoutControl DataLayoutControl;
         protected IBaseBll Bll;
-        protected KartTuru KartTuru;
+        protected KartTuru BaseKartTuru;
         protected BaseEntity OldEntity;
         protected BaseEntity CurrentEntity;
         protected bool IsLoaded;
@@ -55,7 +55,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             GuncelNesneOlustur();
             //SablonYukle();
             //ButonGizleGoster();
-            Id = IslemTuru.IdOlustur(OldEntity);
+            Id = BaseIslemTuru.IdOlustur(OldEntity);
 
             //Guncelleme yapılacak
         }
@@ -65,7 +65,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             if (e.Item==btnYeni)
             {
                 //Yetki kontrolü yap
-                IslemTuru = IslemTuru.EntityInsert;
+                BaseIslemTuru = IslemTuru.EntityInsert;
                 Yukle();
             }
             else if (e.Item == btnKaydet)
@@ -103,7 +103,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             bool KayitIslemi()
             {
                 Cursor.Current = Cursors.WaitCursor;
-                switch (IslemTuru)
+                switch (BaseIslemTuru)
                 {
                     case IslemTuru.EntityInsert:
                         if (EntityInsert())
@@ -131,7 +131,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                     }
                     else
                     {
-                        IslemTuru =IslemTuru== IslemTuru.EntityInsert ? IslemTuru.EntityUpdate : IslemTuru;
+                        BaseIslemTuru =BaseIslemTuru== IslemTuru.EntityInsert ? IslemTuru.EntityUpdate : BaseIslemTuru;
                     }
                     return true;
                 }

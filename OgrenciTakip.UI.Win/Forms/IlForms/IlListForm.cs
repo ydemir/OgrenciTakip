@@ -14,27 +14,28 @@ using OgrenciTakip.UI.Win.Show;
 using OgrenciTakip.UI.Win.Functions;
 using OgrenciTakip.MODEL.Entities;
 
-namespace OgrenciTakip.UI.Win.Forms.OkulForms
+namespace OgrenciTakip.UI.Win.Forms.IlForms
 {
-    public partial class OkulListForm : BaseListForm
+    public partial class IlListForm : BaseListForm
     {
-        public OkulListForm()
+        public IlListForm()
         {
             InitializeComponent();
-            Bll = new OkulBll();
+           
+            Bll = new IlBll();
         }
 
         protected override void DegiskenleriDoldur()
         {
             Tablo = tablo;
-            BaseKartTuru = COMMON.Enums.KartTuru.Okul;
-            FormShow = new ShowEditForms<OkulEditForm>();
+            BaseKartTuru = COMMON.Enums.KartTuru.Il;
+            FormShow = new ShowEditForms<IlEditForm>();
             Navigator = longNavigator.Navigator;
         }
 
         protected override void Listele()
         {
-            Tablo.GridControl.DataSource=((OkulBll)Bll).List(FilterFunctions.Filter<Okul>(AktifKartlariGoster));
+            Tablo.GridControl.DataSource = ((IlBll)Bll).List(FilterFunctions.Filter<Il>(AktifKartlariGoster));
         }
     }
 }

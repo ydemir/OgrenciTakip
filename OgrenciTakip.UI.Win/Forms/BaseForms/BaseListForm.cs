@@ -22,7 +22,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
     {
         //sen şu formu açacaksın ona göre işlemler yapacaksın.
         protected IBaseFormShow FormShow;
-        protected KartTuru kartTuru;
+        protected KartTuru BaseKartTuru;
         protected internal GridView Tablo;
         protected bool AktifKartlariGoster = true;
         protected internal bool MultiSelect;
@@ -77,7 +77,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         {
             //Hangi formu açacağını bildireceğiz.
             //kart türünü değişkenini filtre gibi alanlarda kulllanacağız.
-            var result = FormShow.ShowDialogEditForm(kartTuru, id);
+            var result = FormShow.ShowDialogEditForm(BaseKartTuru, id);
         }
 
         private void EntityDelete()
