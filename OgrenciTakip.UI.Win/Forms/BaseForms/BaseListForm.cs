@@ -73,7 +73,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
         protected virtual void DegiskenleriDoldur() { }
 
-        private void ShowEditForm(long id)
+        protected virtual void ShowEditForm(long id)
         {
             //Hangi formu açacağını bildireceğiz.
             //kart türünü değişkenini filtre gibi alanlarda kulllanacağız.

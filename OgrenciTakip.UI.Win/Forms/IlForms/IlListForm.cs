@@ -37,5 +37,7 @@ namespace OgrenciTakip.UI.Win.Forms.IlForms
         {
             Tablo.GridControl.DataSource = ((IlBll)Bll).List(FilterFunctions.Filter<Il>(AktifKartlariGoster));
         }
+
+        
     }
 }
