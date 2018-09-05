@@ -36,7 +36,7 @@ namespace OgrenciTakip.UI.Win.Forms.IlForms
             {
                 return;
             }
-            txtKod.Text = ((OkulBll)Bll).YeniKodVer();
+            txtKod.Text = ((IlBll)Bll).YeniKodVer();
             txtIlAdi.Focus();
         }
 

@@ -35,27 +35,27 @@
             DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
             this.myDataLayoutControl = new OgrenciTakip.UI.Win.UserControls.Controls.MyDataLayoutControl();
+            this.txtIlceAdi = new OgrenciTakip.UI.Win.UserControls.Controls.MyTextEdit();
             this.txtAciklama = new OgrenciTakip.UI.Win.UserControls.Controls.MyMemoEdit();
             this.tglDurum = new DevExpress.XtraEditors.ToggleSwitch();
-            this.txtIlceAdi = new OgrenciTakip.UI.Win.UserControls.Controls.MyTextEdit();
             this.txtKod = new OgrenciTakip.UI.Win.UserControls.Controls.MyKodTexEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataLayoutControl)).BeginInit();
             this.myDataLayoutControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIlceAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tglDurum.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIlceAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -66,9 +66,9 @@
             // 
             // myDataLayoutControl
             // 
+            this.myDataLayoutControl.Controls.Add(this.txtIlceAdi);
             this.myDataLayoutControl.Controls.Add(this.txtAciklama);
             this.myDataLayoutControl.Controls.Add(this.tglDurum);
-            this.myDataLayoutControl.Controls.Add(this.txtIlceAdi);
             this.myDataLayoutControl.Controls.Add(this.txtKod);
             this.myDataLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myDataLayoutControl.Location = new System.Drawing.Point(0, 102);
@@ -78,6 +78,20 @@
             this.myDataLayoutControl.Size = new System.Drawing.Size(380, 116);
             this.myDataLayoutControl.TabIndex = 0;
             this.myDataLayoutControl.Text = "myDataLayoutControl1";
+            // 
+            // txtIlceAdi
+            // 
+            this.txtIlceAdi.EnterMoveNextControl = true;
+            this.txtIlceAdi.Location = new System.Drawing.Point(56, 36);
+            this.txtIlceAdi.MenuManager = this.ribbonControl;
+            this.txtIlceAdi.Name = "txtIlceAdi";
+            this.txtIlceAdi.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
+            this.txtIlceAdi.Properties.AppearanceFocused.Options.UseBackColor = true;
+            this.txtIlceAdi.Properties.MaxLength = 50;
+            this.txtIlceAdi.Size = new System.Drawing.Size(152, 20);
+            this.txtIlceAdi.StatusBarAciklama = null;
+            this.txtIlceAdi.StyleController = this.myDataLayoutControl;
+            this.txtIlceAdi.TabIndex = 0;
             // 
             // txtAciklama
             // 
@@ -104,20 +118,6 @@
             this.tglDurum.StyleController = this.myDataLayoutControl;
             this.tglDurum.TabIndex = 2;
             // 
-            // txtIlceAdi
-            // 
-            this.txtIlceAdi.EnterMoveNextControl = true;
-            this.txtIlceAdi.Location = new System.Drawing.Point(56, 36);
-            this.txtIlceAdi.MenuManager = this.ribbonControl;
-            this.txtIlceAdi.Name = "txtIlceAdi";
-            this.txtIlceAdi.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
-            this.txtIlceAdi.Properties.AppearanceFocused.Options.UseBackColor = true;
-            this.txtIlceAdi.Properties.MaxLength = 50;
-            this.txtIlceAdi.Size = new System.Drawing.Size(152, 20);
-            this.txtIlceAdi.StatusBarAciklama = "İlçe Adı Giriniz.";
-            this.txtIlceAdi.StyleController = this.myDataLayoutControl;
-            this.txtIlceAdi.TabIndex = 0;
-            // 
             // txtKod
             // 
             this.txtKod.EnterMoveNextControl = true;
@@ -142,9 +142,9 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.layoutControlItem,
             this.layoutControlItem3,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem2});
             this.layoutControlGroup1.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             columnDefinition1.SizeType = System.Windows.Forms.SizeType.Absolute;
@@ -181,18 +181,6 @@
             this.layoutControlItem1.Text = "Kod";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(41, 13);
             // 
-            // layoutControlItem
-            // 
-            this.layoutControlItem.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
-            this.layoutControlItem.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem.Control = this.txtIlceAdi;
-            this.layoutControlItem.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem.Name = "layoutControlItem";
-            this.layoutControlItem.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem.Size = new System.Drawing.Size(200, 24);
-            this.layoutControlItem.Text = "İlçe Adı";
-            this.layoutControlItem.TextSize = new System.Drawing.Size(41, 13);
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
@@ -218,6 +206,18 @@
             this.layoutControlItem4.Text = "Açıklama";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(41, 13);
             // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem2.Control = this.txtIlceAdi;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.OptionsTableLayoutItem.RowIndex = 1;
+            this.layoutControlItem2.Size = new System.Drawing.Size(200, 24);
+            this.layoutControlItem2.Text = "İlçe Adı ";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(41, 13);
+            // 
             // IlceEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,15 +232,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataLayoutControl)).EndInit();
             this.myDataLayoutControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtIlceAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAciklama.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tglDurum.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIlceAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKod.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,11 +252,11 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private UserControls.Controls.MyMemoEdit txtAciklama;
         private DevExpress.XtraEditors.ToggleSwitch tglDurum;
-        private UserControls.Controls.MyTextEdit txtIlceAdi;
         private UserControls.Controls.MyKodTexEdit txtKod;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private UserControls.Controls.MyTextEdit txtIlceAdi;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

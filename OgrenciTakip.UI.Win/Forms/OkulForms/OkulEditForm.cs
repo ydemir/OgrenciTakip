@@ -73,7 +73,23 @@ namespace OgrenciTakip.UI.Win.Forms.OkulForms
 
         protected override void SecipYap(object sender)
         {
-            base.SecipYap(sender);
+            if (!(sender is ButtonEdit))
+            {
+                return;
+            }
+
+            using (var sec=new SelectFunctions())
+            {
+                if (sender == txtIl)
+                {
+                    sec.Sec(txtIl);
+                }
+                else if(sender ==txtIlce)
+                {
+                    sec.Sec(txtIlce, txtIl);
+                }
+                
+            }
         }
 
 

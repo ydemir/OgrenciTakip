@@ -42,7 +42,7 @@ namespace OgrenciTakip.UI.Win.Forms.IlceForms
         {
             var entity = (Ilce)OldEntity;
             txtKod.Text = entity.Kod;
-            layoutControlItem.Text = entity.IlceAdi;
+            txtIlceAdi.Text = entity.IlceAdi;
             txtAciklama.Text = entity.Aciklama;
             tglDurum.IsOn = entity.Durum;
 
@@ -54,7 +54,7 @@ namespace OgrenciTakip.UI.Win.Forms.IlceForms
             {
                 Id = Id,
                 Kod = txtKod.Text,
-                IlceAdi = layoutControlItem.Text,
+                IlceAdi = txtIlceAdi.Text,
                 IlId = _ilId,
                 Aciklama = txtAciklama.Text,
                 Durum = tglDurum.IsOn

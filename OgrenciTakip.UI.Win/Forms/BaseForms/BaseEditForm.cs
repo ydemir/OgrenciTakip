@@ -24,6 +24,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         protected internal long Id;
         protected internal bool RefreshYapilacak;
         protected MyDataLayoutControl DataLayoutControl;
+        protected MyDataLayoutControl[] DataLayoutControls;
+
         protected IBaseBll Bll;
         protected KartTuru BaseKartTuru;
         protected BaseEntity OldEntity;
@@ -47,6 +49,94 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             //Form Events
 
             Load += BaseEditForm_Load;
+
+            void ControlEvents(Control control)
+            {
+                control.KeyDown += Control_KeyDown;
+                switch (control)
+                {
+                    case MyButtonEdit edt:
+                        edt.IdChanged += Control_IdChanged;
+                        edt.ButtonClick += Control_ButtonClick;
+                        edt.DoubleClick += Control_DoubleClick;
+                        break;
+                    case BaseEdit edt:
+                        edt.EditValueChanged += Control_EditValueChanged;
+                        break;
+                }
+            }
+            if (DataLayoutControls==null)
+            {
+                if (DataLayoutControl==null)
+                {
+                    return;
+                }
+                foreach (Control ctrl in DataLayoutControl.Controls)
+                {
+                    ControlEvents(ctrl);
+                }
+            }
+            else
+            {
+                foreach (var layout in DataLayoutControls)
+                {
+                    foreach (Control ctrl in layout.Controls)
+                    {
+                        ControlEvents(ctrl);
+                    }
+                }
+            }
+        }
+
+        private void Control_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!IsLoaded)
+            {
+                return;
+            }
+            GuncelNesneOlustur();
+        }
+
+        private void Control_DoubleClick(object sender, EventArgs e)
+        {
+            SecipYap(sender);
+        }
+
+        private void Control_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            SecipYap(sender);
+        }
+
+        private void Control_IdChanged(object sender, IdChangedEventArgs e)
+        {
+            if (!IsLoaded)
+            {
+                return;
+            }
+            GuncelNesneOlustur();
+        }
+
+        private void Control_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode==Keys.Escape)
+            {
+                Close();
+            }
+            if (sender is MyButtonEdit edt)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Delete when e.Control && e.Shift:
+                        edt.Id = null;
+                        edt.EditValue = null;
+                        break;
+
+                    case Keys.F4:
+                    case Keys.Down when e.Modifiers == Keys.Alt:
+                        SecipYap(edt);
+                        break;
+                }
+            }
         }
 
         private void BaseEditForm_Load(object sender, EventArgs e)
