@@ -88,6 +88,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             }
         }
 
+        protected virtual void SecipYap(object sender) { }
+
         private void EntityDelete()
         {
             throw new NotImplementedException();

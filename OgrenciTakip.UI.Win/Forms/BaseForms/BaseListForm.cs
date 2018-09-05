@@ -30,6 +30,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         //BaseListForm a bir tane BLL göndereceğiz burada bll ile ilgili delete işlemini yapacağız. Tüm formlar burdan implement olduğundan hazır hale gelecek
         protected IBaseBll Bll;
         protected ControlNavigator Navigator;
+        protected internal long? seciliGelecekId;
         public BaseListForm()
         {
             InitializeComponent();

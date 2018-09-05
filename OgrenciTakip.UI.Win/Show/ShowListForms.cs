@@ -1,4 +1,5 @@
 ﻿using OgrenciTakip.COMMON.Enums;
+using OgrenciTakip.MODEL.Entities.Base;
 using OgrenciTakip.UI.Win.Forms.BaseForms;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,20 @@ namespace OgrenciTakip.UI.Win.Show
             frm.MdiParent = Form.ActiveForm;
             frm.Yukle();
             frm.Show();
+        }
+
+        public static BaseEntity ShowDialogListForm(KartTuru kartTuru,long? seciliGelecekId,params object[] prm)
+        {
+            // yetki kontrolü
+
+            using(var frm = (TForm)Activator.CreateInstance(typeof(TForm), prm))
+            {
+                frm.seciliGelecekId = seciliGelecekId;
+                frm.Yukle();
+                frm.ShowDialog();
+
+                return frm.DialogResult == DialogResult.OK ? frm.selectedEntity : null;
+            }
         }
     }
 }

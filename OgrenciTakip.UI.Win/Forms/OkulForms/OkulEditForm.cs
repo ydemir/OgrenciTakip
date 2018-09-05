@@ -71,7 +71,10 @@ namespace OgrenciTakip.UI.Win.Forms.OkulForms
             ButtonEnabledDurumu();
         }
 
-
+        protected override void SecipYap(object sender)
+        {
+            base.SecipYap(sender);
+        }
 
 
 
