@@ -56,6 +56,7 @@
     <Compile Include="General\IlceBll.cs" />
     <Compile Include="General\OkulBll.cs" />
     <Compile Include="Interfaces\IBaseBll.cs" />
+    <Compile Include="Interfaces\IBaseCommonDll.cs" />
     <Compile Include="Interfaces\IBaseGenelBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,7 +12,7 @@ using OgrenciTakip.BLL.Interfaces;
 
 namespace OgrenciTakip.BLL.General
 {
-    public class OkulBll : BaseBll<Okul, OgrenciTakipContext>,IBaseGenelBll
+    public class OkulBll : BaseBll<Okul, OgrenciTakipContext>,IBaseGenelBll, IBaseCommonDll
     {
         public OkulBll() { }
 

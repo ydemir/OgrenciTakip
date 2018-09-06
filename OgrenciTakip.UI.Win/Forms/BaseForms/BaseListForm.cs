@@ -120,7 +120,19 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
         private void EntityDelete()
         {
-            throw new NotImplementedException();
+            var entity = Tablo.GetRow<BaseEntity>();
+            if (entity==null)
+            {
+                return;
+            }
+
+            if (!((IBaseCommonDll)Bll).Delete(entity))
+            {
+                return;
+            }
+
+            Tablo.DeleteSelectedRows();
+            Tablo.RowFocus(Tablo.FocusedRowHandle);
         }
 
         private void SelectEntity()

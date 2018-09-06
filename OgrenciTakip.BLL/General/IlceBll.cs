@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace OgrenciTakip.BLL.General
 {
-   public class IlceBll : BaseBll<Ilce, OgrenciTakipContext>
+   public class IlceBll : BaseBll<Ilce, OgrenciTakipContext>, IBaseCommonDll
     {
         public IlceBll()
         {

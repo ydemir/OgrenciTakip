@@ -160,6 +160,22 @@ namespace OgrenciTakip.UI.Win.Functions
             }
             tablo.FocusedRowHandle = rowHandle;
         }
+
+        public static void RowFocus(this GridView tablo,int rowHandle)
+        {
+            if (rowHandle<=0)
+            {
+                return;
+            }
+            if (rowHandle==tablo.RowCount-1)
+            {
+                tablo.FocusedRowHandle = rowHandle;
+            }
+            else
+            {
+                tablo.FocusedRowHandle = rowHandle - 1;
+            }
+        }
     }
 }
 
