@@ -198,7 +198,19 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
         private void GeriAl()
         {
-            throw new NotImplementedException();
+            if (Messages.HayirSeciliEvetHayir("Yapılan değişiklikler Geri Alınacaktır. Onaylıyor Musunuz ?","GeriAl Onay")!=DialogResult.Yes)
+            {
+                return;
+            }
+            if (BaseIslemTuru==IslemTuru.EntityUpdate)
+            {
+                Yukle();
+            }
+            else
+            {
+                Close();
+            }
+           
         }
 
         private bool Kaydet(bool kapanis)
