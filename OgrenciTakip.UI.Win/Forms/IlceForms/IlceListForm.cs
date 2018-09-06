@@ -36,6 +36,7 @@ namespace OgrenciTakip.UI.Win.Forms.IlceForms
             BaseKartTuru = COMMON.Enums.KartTuru.Ilce;
             //FormShow = new ShowEditForms<IlEditForm>();
             Navigator = longNavigator.Navigator;
+            Text = Text + $"- ( {_ilAdi} )";
         }
 
         protected override void Listele()
@@ -46,7 +47,7 @@ namespace OgrenciTakip.UI.Win.Forms.IlceForms
         {
             var result = new ShowEditForms<IlceEditForm>().ShowDialogEditForm(COMMON.Enums.KartTuru.Ilce,id,_ilId,_ilAdi);
 
-            //işlem yapılacak
+            ShowEditFormDefault(result);
         }
 
 

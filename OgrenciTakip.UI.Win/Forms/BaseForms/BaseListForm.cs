@@ -55,9 +55,33 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             Tablo.KeyDown += Tablo_KeyDown;
 
             //Forms Events
+
+            Shown += BaseListForm_Shown;
         }
 
-       
+        private void BaseListForm_Shown(object sender, EventArgs e)
+        {
+            Tablo.Focus();
+            //ButonGizleGoster();
+            //SutunGizleGoster();
+
+            if (IsMdiChild ||seciliGelecekId==null)
+            {
+                return;
+            }
+            Tablo.RowFocus("Id", seciliGelecekId);
+        }
+
+        private void SutunGizleGoster()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButonGizleGoster()
+        {
+            throw new NotImplementedException();
+        }
+
         protected internal void Yukle()
         {
             DegiskenleriDoldur();
@@ -79,6 +103,19 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             //Hangi formu açacağını bildireceğiz.
             //kart türünü değişkenini filtre gibi alanlarda kulllanacağız.
             var result = FormShow.ShowDialogEditForm(BaseKartTuru, id);
+            ShowEditFormDefault(result);
+        }
+
+        protected void ShowEditFormDefault(long id)
+        {
+            if (id<=0)
+            {
+                return;
+            }
+
+            AktifKartlariGoster = true;
+            FormCaptionAyarla();
+            Tablo.RowFocus("Id", id);
         }
 
         private void EntityDelete()
@@ -113,7 +150,22 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
         private void FormCaptionAyarla()
         {
-            throw new NotImplementedException();
+            if (btnAktifPasifKartlar==null)
+            {
+                Listele();
+                return;
+            }
+            if (AktifKartlariGoster)
+            {
+                btnAktifPasifKartlar.Caption = "Pasif Kartlar";
+                Tablo.ViewCaption = Text;
+            }
+            else
+            {
+                btnAktifPasifKartlar.Caption = "Aktif Kartlar";
+                Tablo.ViewCaption = Text + " - Pasif Kartlar";
+            }
+            Listele();
         }
 
         private void IslemTuruSec()
