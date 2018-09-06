@@ -3,11 +3,13 @@ using DevExpress.XtraGrid.Views.Grid;
 using OgrenciTakip.COMMON.Enums;
 using OgrenciTakip.COMMON.Message;
 using OgrenciTakip.MODEL.Entities.Base;
+using OgrenciTakip.UI.Win.UserControls.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OgrenciTakip.UI.Win.Functions
 {
@@ -130,6 +132,18 @@ namespace OgrenciTakip.UI.Win.Functions
                 return yil + ay + gun + saat + dakika + saniye + milisaniye + random;
             }
             return IslemTuru == IslemTuru.EntityUpdate ? selectedEntity.Id : long.Parse(Id());
+        }
+
+        public static void ControlEnabledChange(this MyButtonEdit baseEdit,Control prmEdit)
+        {
+            switch (prmEdit)
+            {
+                case MyButtonEdit edt:
+                    edt.Enabled = baseEdit.Id.HasValue && baseEdit.Id>0;
+                    edt.Id = null;
+                    edt.EditValue = null;
+                    break;
+            }
         }
     }
 }
