@@ -50,6 +50,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
             Load += BaseEditForm_Load;
 
+            FormClosing += BaseEditForm_FormClosing;
+
             void ControlEvents(Control control)
             {
                 control.KeyDown += Control_KeyDown;
@@ -87,6 +89,25 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                     }
                 }
             }
+        }
+
+        private void BaseEditForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //SablonKaydet();
+            if (btnKaydet.Visibility==BarItemVisibility.Never||!btnKaydet.Enabled)
+            {
+                return;
+            }
+
+            if (!Kaydet(true))
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void SablonKaydet()
+        {
+            throw new NotImplementedException();
         }
 
         protected virtual void Control_EnabledChange(object sender, EventArgs e)
@@ -158,6 +179,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
         private void Button_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+
             if (e.Item==btnYeni)
             {
                 //Yetki kontrolü yap
@@ -181,7 +204,10 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             else if (e.Item == btnCikis)
             {
                 Close();
+                return;
             }
+
+            Cursor.Current = DefaultCursor;
         }
 
         protected virtual void SecipYap(object sender) { }
@@ -232,9 +258,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                             return KayitSonrasiIslemler();
                         }
                         break;
-                    
                 }
-
                 bool KayitSonrasiIslemler()
                 {
                     OldEntity = CurrentEntity;
@@ -265,7 +289,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                     }
                     return true;
                 case DialogResult.Cancel:
-                    return true;
+                    return false;
             
              
             }

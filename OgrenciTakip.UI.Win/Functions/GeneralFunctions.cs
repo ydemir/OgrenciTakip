@@ -176,6 +176,15 @@ namespace OgrenciTakip.UI.Win.Functions
                 tablo.FocusedRowHandle = rowHandle - 1;
             }
         }
+
+        public static void SagMenuGoster(this MouseEventArgs e,PopupMenu sagMenu)
+        {
+            if (e.Button!=MouseButtons.Right)
+            {
+                return;
+            }
+            sagMenu.ShowPopup(Control.MousePosition);
+        }
     }
 }
 

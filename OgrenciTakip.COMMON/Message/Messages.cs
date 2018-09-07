@@ -25,7 +25,7 @@ namespace OgrenciTakip.COMMON.Message
         }
         public static DialogResult EvetSeciliEvetHayirIptal(string mesaj, string baslik)
         {
-            return XtraMessageBox.Show(mesaj, baslik, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            return XtraMessageBox.Show(mesaj, baslik, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
         }
 
         public static DialogResult SilMesaj(string kartAdi)
