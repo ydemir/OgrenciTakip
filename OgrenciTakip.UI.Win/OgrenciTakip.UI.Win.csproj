@@ -403,6 +403,29 @@
   <ItemGroup>
     <None Include="Resources\exporttotxt_32x32.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\documentmap_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentmap_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentmap_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentmap_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentmap_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentmap_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentmap_32x323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documentmap_16x163.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

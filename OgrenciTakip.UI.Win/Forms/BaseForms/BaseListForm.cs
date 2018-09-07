@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using OgrenciTakip.UI.Win.Functions;
 using OgrenciTakip.MODEL.Entities.Base;
 using OgrenciTakip.BLL.Interfaces;
+using DevExpress.XtraPrinting.Native;
 
 namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
@@ -32,6 +33,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         protected IBaseBll Bll;
         protected ControlNavigator Navigator;
         protected internal long? seciliGelecekId;
+        protected BarItem[] ShowItems;
+        protected BarItem[] HideItems;
         public BaseListForm()
         {
             InitializeComponent();
@@ -91,7 +94,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             barEnterAciklama.Visibility = IsMdiChild ? BarItemVisibility.Never : BarItemVisibility.Always;
             btnAktifPasifKartlar.Visibility = AktifPasifButonGoster ? BarItemVisibility.Always : !IsMdiChild ? BarItemVisibility.Never : BarItemVisibility.Always;
 
-            //Güncellenecek
+            ShowItems?.ForEach(x => x.Visibility = BarItemVisibility.Always);
+            HideItems?.ForEach(x => x.Visibility = BarItemVisibility.Never);
         }
 
         protected internal void Yukle()
@@ -282,6 +286,10 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                     Tablo.HideCustomization();
                 }
             }
+            else if (e.Item == btnBagliKartlar)
+            {
+                BagliKartAc();
+            }
 
             else if (e.Item == btnYazdir)
             {
@@ -302,6 +310,11 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
             Cursor.Current = DefaultCursor;
 
+        }
+
+        protected virtual void BagliKartAc()
+        {
+           
         }
 
         private void Tablo_DoubleClick(object sender, EventArgs e)
