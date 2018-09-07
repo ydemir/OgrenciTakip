@@ -21,6 +21,9 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseListForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+
+        private bool _formSablonKayitEdilecek;
+        private bool _tabloSablonKayitEdilecek;
         //sen şu formu açacaksın ona göre işlemler yapacaksın.
         protected IBaseFormShow FormShow;
         protected KartTuru BaseKartTuru;
@@ -58,10 +61,59 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             Tablo.DoubleClick += Tablo_DoubleClick;
             Tablo.KeyDown += Tablo_KeyDown;
             Tablo.MouseUp += Tablo_MouseUp;
+            Tablo.ColumnWidthChanged += Tablo_ColumnWidthChanged;
+            Tablo.ColumnPositionChanged += Tablo_ColumnPositionChanged;
+            Tablo.EndSorting += Tablo_EndSorting;
 
             //Forms Events
 
             Shown += BaseListForm_Shown;
+            Load += BaseListForm_Load;
+            FormClosing += BaseListForm_FormClosing;
+            LocationChanged += BaseListForm_LocationChanged;
+            SizeChanged += BaseListForm_SizeChanged;
+        }
+
+        private void BaseListForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (!IsMdiChild)
+            {
+                _formSablonKayitEdilecek = true;
+            }
+           
+        }
+
+        private void BaseListForm_LocationChanged(object sender, EventArgs e)
+        {
+            if (!IsMdiChild)
+            {
+                _formSablonKayitEdilecek = true;
+            }
+        }
+
+        private void Tablo_EndSorting(object sender, EventArgs e)
+        {
+            _tabloSablonKayitEdilecek = true;
+        }
+
+        private void Tablo_ColumnPositionChanged(object sender, EventArgs e)
+        {
+            _tabloSablonKayitEdilecek = true;
+        }
+
+        private void Tablo_ColumnWidthChanged(object sender, DevExpress.XtraGrid.Views.Base.ColumnEventArgs e)
+        {
+            _tabloSablonKayitEdilecek = true;
+        }
+
+        private void BaseListForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SablonKaydet();
+        }
+
+        private void BaseListForm_Load(object sender, EventArgs e)
+        {
+            SablonYukle();
         }
 
         private void Tablo_MouseUp(object sender, MouseEventArgs e)
@@ -85,6 +137,31 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         private void SutunGizleGoster()
         {
             throw new NotImplementedException();
+        }
+
+        private void SablonKaydet()
+        {
+            if (_formSablonKayitEdilecek)
+            {
+                Name.FormSablonKaydet(Left, Top, Width, Height, WindowState);
+
+            }
+            if (_tabloSablonKayitEdilecek)
+            {
+                Tablo.TabloSablonKaydet(IsMdiChild ? Name + " Tablosu" : Name + " TablosuMDI");
+            }
+        }
+        private void SablonYukle()
+        {
+            if (IsMdiChild)
+            {
+                Tablo.TabloSablonYukle(Name + " Tablosu");
+            }
+            else
+            {
+                Name.FormSablonYukle(this);
+                Tablo.TabloSablonYukle(Name + " TablosuMDI");
+            }
         }
 
         private void ButonGizleGoster()

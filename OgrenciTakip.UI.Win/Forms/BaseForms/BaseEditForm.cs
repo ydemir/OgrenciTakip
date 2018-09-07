@@ -20,6 +20,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseEditForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        private bool _formSablonKayitEdilecek;
         protected internal IslemTuru BaseIslemTuru;
         protected internal long Id;
         protected internal bool RefreshYapilacak;
@@ -47,6 +48,9 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             }
 
             //Form Events
+
+            LocationChanged += BaseEditForm_LocationChanged;
+            SizeChanged += BaseEditForm_SizeChanged;
 
             Load += BaseEditForm_Load;
 
@@ -91,9 +95,19 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             }
         }
 
+        private void BaseEditForm_SizeChanged(object sender, EventArgs e)
+        {
+            _formSablonKayitEdilecek = true;
+        }
+
+        private void BaseEditForm_LocationChanged(object sender, EventArgs e)
+        {
+            _formSablonKayitEdilecek = true;
+        }
+
         private void BaseEditForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //SablonKaydet();
+            SablonKaydet();
             if (btnKaydet.Visibility==BarItemVisibility.Never||!btnKaydet.Enabled)
             {
                 return;
@@ -105,9 +119,17 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             }
         }
 
-        private void SablonKaydet()
+        protected void SablonKaydet()
         {
-            throw new NotImplementedException();
+            if (_formSablonKayitEdilecek)
+            {
+                Name.FormSablonKaydet(Left, Top, Width, Height, WindowState);
+            }
+        }
+
+        private void SablonYukle()
+        {
+            Name.FormSablonYukle(this);
         }
 
         protected virtual void Control_EnabledChange(object sender, EventArgs e)
@@ -170,7 +192,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         {
             IsLoaded = true;
             GuncelNesneOlustur();
-            //SablonYukle();
+            SablonYukle();
             //ButonGizleGoster();
             Id = BaseIslemTuru.IdOlustur(OldEntity);
 
