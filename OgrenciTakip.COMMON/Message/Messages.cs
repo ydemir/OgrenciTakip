@@ -35,7 +35,7 @@ namespace OgrenciTakip.COMMON.Message
 
         public static DialogResult KapanisMesaj()
         {
-            return EvetSeciliEvetHayir("Yapılan Değişiklikler Kayıt Edilsin Mi?", "Çıkış Onay");
+            return EvetSeciliEvetHayirIptal("Yapılan Değişiklikler Kayıt Edilsin Mi?", "Çıkış Onay");
         }
 
         public static DialogResult KayitMesaj()

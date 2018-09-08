@@ -36,6 +36,7 @@ namespace OgrenciTakip.UI.Win.Forms.IlForms
             {
                 return;
             }
+            Id = BaseIslemTuru.IdOlustur(OldEntity);
             txtKod.Text = ((IlBll)Bll).YeniKodVer();
             txtIlAdi.Focus();
         }

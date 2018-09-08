@@ -222,7 +222,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             GuncelNesneOlustur();
             SablonYukle();
             //ButonGizleGoster();
-            Id = BaseIslemTuru.IdOlustur(OldEntity);
+          
 
             //Guncelleme yapılacak
         }
@@ -254,7 +254,6 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             else if (e.Item == btnCikis)
             {
                 Close();
-                return;
             }
 
             Cursor.Current = DefaultCursor;
