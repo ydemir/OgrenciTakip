@@ -48,5 +48,15 @@ namespace OgrenciTakip.COMMON.Message
             UyariMesaji("Lütfen Bir Kart Seçiniz.");
         }
 
+        public static void MukerrerKayitHataMesaji(string alanAdi)
+        {
+            HataMesaji($"Girmiş Olduğunuz {alanAdi} Daha önce kullanılmıştır.");
+        }
+
+        public static void HataliVeriMesaji(string alanAdi)
+        {
+            HataMesaji($"{alanAdi} Alanına Geçerli Bir Değer Girmelisiniz.");
+        }
+
     }
 }

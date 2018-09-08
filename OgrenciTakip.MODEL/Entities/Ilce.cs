@@ -1,4 +1,5 @@
-﻿using OgrenciTakip.MODEL.Entities.Base;
+﻿using OgrenciTakip.MODEL.Attributes;
+using OgrenciTakip.MODEL.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,7 +15,7 @@ namespace OgrenciTakip.MODEL.Entities
         //unik yapmadık cünkü içe kodları unik değil
         [Index("IX_Kod", IsUnique = false)]
         public override string Kod { get; set; }
-        [Required,StringLength(50)]
+        [Required,StringLength(50), ZorunluAlan("İlçe Adı", "txtIlceAdi")]
         public string IlceAdi { get; set; }
         public long IlId { get; set; }
 

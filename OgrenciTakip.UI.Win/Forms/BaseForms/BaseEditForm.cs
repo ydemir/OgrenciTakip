@@ -15,6 +15,8 @@ using OgrenciTakip.BLL.Interfaces;
 using OgrenciTakip.MODEL.Entities.Base;
 using OgrenciTakip.UI.Win.Functions;
 using OgrenciTakip.COMMON.Message;
+using OgrenciTakip.UI.Win.UserControls.Grid;
+using OgrenciTakip.UI.Win.Interfaces;
 
 namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
@@ -59,6 +61,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             void ControlEvents(Control control)
             {
                 control.KeyDown += Control_KeyDown;
+                control.GotFocus += Control_GotFocus;
+                control.Leave += Control_Leave;
                 switch (control)
                 {
                     case MyButtonEdit edt:
@@ -92,6 +96,30 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                         ControlEvents(ctrl);
                     }
                 }
+            }
+        }
+
+        private void Control_Leave(object sender, EventArgs e)
+        {
+            statusBarKisaYol.Visibility = BarItemVisibility.Never;
+            statusBarKisayolAciklama.Visibility = BarItemVisibility.Never;
+        }
+
+        private void Control_GotFocus(object sender, EventArgs e)
+        {
+            var type = sender.GetType();
+            if (type==typeof(MyButtonEdit) || type ==typeof(MyGridView) || type==typeof(MyPictureEdit) || type == typeof(MyComboBoxEdit) || type == typeof(MyDateEdit))
+            {
+                statusBarKisaYol.Visibility = BarItemVisibility.Always;
+                statusBarKisayolAciklama.Visibility = BarItemVisibility.Always;
+
+                statusBarAciklama.Caption = ((IStatusBarAciklama)sender).StatusBarAciklama;
+                statusBarKisaYol.Caption = ((IStatusBarKisaYol)sender).StatusBarKisaYol;
+                statusBarKisayolAciklama.Caption = ((IStatusBarKisaYol)sender).StatusBarKisaYolAciklama;
+            }
+            else if(sender is IStatusBarAciklama ctrl)
+            {
+                statusBarAciklama.Caption = ctrl.StatusBarAciklama;
             }
         }
 

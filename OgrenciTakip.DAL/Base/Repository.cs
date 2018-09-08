@@ -86,7 +86,10 @@ namespace OgrenciTakip.DAL.Base
             return filter == null ? _dbSet.Select(selector) : _dbSet.Where(filter).Select(selector);
         }
 
-      
+       public int Count(Expression<Func<T, bool>> filter = null)
+        {
+            return filter == null ? _dbSet.Count() : _dbSet.Count(filter);
+        }
 
         #region Dispose
         private bool _disposedValue = false; 
@@ -166,6 +169,8 @@ namespace OgrenciTakip.DAL.Base
 
             return maxKod == null ? Kod() : YeniKodVer(maxKod);
         }
+
+   
         #endregion
     }
 }

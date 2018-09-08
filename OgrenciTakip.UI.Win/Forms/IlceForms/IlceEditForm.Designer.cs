@@ -89,7 +89,7 @@
             this.txtIlceAdi.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtIlceAdi.Properties.MaxLength = 50;
             this.txtIlceAdi.Size = new System.Drawing.Size(152, 20);
-            this.txtIlceAdi.StatusBarAciklama = null;
+            this.txtIlceAdi.StatusBarAciklama = "İlçe Adı Giriniz.";
             this.txtIlceAdi.StyleController = this.myDataLayoutControl;
             this.txtIlceAdi.TabIndex = 0;
             // 
