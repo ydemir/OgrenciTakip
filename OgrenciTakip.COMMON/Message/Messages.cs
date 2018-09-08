@@ -58,5 +58,10 @@ namespace OgrenciTakip.COMMON.Message
             HataMesaji($"{alanAdi} Alanına Geçerli Bir Değer Girmelisiniz.");
         }
 
+        public static DialogResult TabloExportMesaj(string dosyaFormati)
+        {
+            return EvetSeciliEvetHayir($"İlgili Tablo {dosyaFormati} Olarak Dışarı Aktarılacaktır Onaylıyor musunuz?", "Aktarım Onay");
+        }
+
     }
 }
