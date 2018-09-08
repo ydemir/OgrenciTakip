@@ -52,6 +52,7 @@
             DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseEditForm));
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnYeni = new DevExpress.XtraBars.BarButtonItem();
             this.btnKaydet = new DevExpress.XtraBars.BarButtonItem();
@@ -65,6 +66,8 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.btnFarkliKaydet = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUygula = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,9 +85,11 @@
             this.btnCikis,
             this.statusBarAciklama,
             this.statusBarKisaYol,
-            this.statusBarKisayolAciklama});
+            this.statusBarKisayolAciklama,
+            this.btnFarkliKaydet,
+            this.btnUygula});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 9;
+            this.ribbonControl.MaxItemId = 11;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -243,8 +248,10 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnYeni);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnKaydet);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnFarkliKaydet);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnGeriAl);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSil);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnUygula);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCikis);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
@@ -263,6 +270,24 @@
             // 
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
+            // 
+            // btnFarkliKaydet
+            // 
+            this.btnFarkliKaydet.Caption = "Farklı Kaydet";
+            this.btnFarkliKaydet.Id = 9;
+            this.btnFarkliKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFarkliKaydet.ImageOptions.Image")));
+            this.btnFarkliKaydet.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFarkliKaydet.ImageOptions.LargeImage")));
+            this.btnFarkliKaydet.Name = "btnFarkliKaydet";
+            this.btnFarkliKaydet.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // btnUygula
+            // 
+            this.btnUygula.Caption = "Uygula";
+            this.btnUygula.Id = 10;
+            this.btnUygula.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUygula.ImageOptions.Image")));
+            this.btnUygula.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUygula.ImageOptions.LargeImage")));
+            this.btnUygula.Name = "btnUygula";
+            this.btnUygula.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // BaseEditForm
             // 
@@ -288,14 +313,16 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
-        private DevExpress.XtraBars.BarButtonItem btnYeni;
-        private DevExpress.XtraBars.BarButtonItem btnKaydet;
-        private DevExpress.XtraBars.BarButtonItem btnGeriAl;
-        private DevExpress.XtraBars.BarButtonItem btnSil;
         private DevExpress.XtraBars.BarButtonItem btnCikis;
         private DevExpress.XtraBars.BarStaticItem statusBarAciklama;
         private DevExpress.XtraBars.BarStaticItem statusBarKisaYol;
         private DevExpress.XtraBars.BarStaticItem statusBarKisayolAciklama;
         protected DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
+        protected DevExpress.XtraBars.BarButtonItem btnFarkliKaydet;
+        protected DevExpress.XtraBars.BarButtonItem btnUygula;
+        protected DevExpress.XtraBars.BarButtonItem btnYeni;
+        protected DevExpress.XtraBars.BarButtonItem btnGeriAl;
+        protected DevExpress.XtraBars.BarButtonItem btnKaydet;
+        protected DevExpress.XtraBars.BarButtonItem btnSil;
     }
 }

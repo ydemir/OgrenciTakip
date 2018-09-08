@@ -54,6 +54,7 @@
     <Compile Include="Entities\Base\BaseEntityDurum.cs" />
     <Compile Include="Entities\Base\BaseHareketEntity.cs" />
     <Compile Include="Entities\Base\Interfaces\IBaseEntity.cs" />
+    <Compile Include="Entities\Filtre.cs" />
     <Compile Include="Entities\Il.cs" />
     <Compile Include="Entities\Ilce.cs" />
     <Compile Include="Entities\Okul.cs" />
@@ -63,6 +64,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OgrenciTakip.COMMON\OgrenciTakip.COMMON.csproj">
+      <Project>{F751813C-0358-482D-A919-223DD279D5DF}</Project>
+      <Name>OgrenciTakip.COMMON</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

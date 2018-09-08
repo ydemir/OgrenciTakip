@@ -17,6 +17,7 @@ using OgrenciTakip.UI.Win.Functions;
 using OgrenciTakip.COMMON.Message;
 using OgrenciTakip.UI.Win.UserControls.Grid;
 using OgrenciTakip.UI.Win.Interfaces;
+using DevExpress.XtraPrinting.Native;
 
 namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
@@ -35,6 +36,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         protected BaseEntity CurrentEntity;
         protected bool IsLoaded;
         protected bool KayitSonrasiFormuKapat = true;
+        protected BarItem[] ShowItems;
+        protected BarItem[] HideItems;
         public BaseEditForm()
         {
             InitializeComponent();
@@ -147,6 +150,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             }
         }
 
+        protected virtual void FiltreUygula() { }
+
         protected void SablonKaydet()
         {
             if (_formSablonKayitEdilecek)
@@ -221,7 +226,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             IsLoaded = true;
             GuncelNesneOlustur();
             SablonYukle();
-            //ButonGizleGoster();
+            ButonGizleGoster();
           
 
             //Guncelleme yapılacak
@@ -251,6 +256,10 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                 //Yetki kontrolü yap
                 EntityDelete();
             }
+            else if (e.Item == btnUygula)
+            {
+                FiltreUygula();
+            }
             else if (e.Item == btnCikis)
             {
                 Close();
@@ -269,6 +278,14 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             }
             RefreshYapilacak = true;
             Close();
+        }
+
+        private void ButonGizleGoster()
+        {
+         
+
+            ShowItems?.ForEach(x => x.Visibility = BarItemVisibility.Always);
+            HideItems?.ForEach(x => x.Visibility = BarItemVisibility.Never);
         }
 
         private void GeriAl()

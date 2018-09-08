@@ -786,10 +786,6 @@
         private DevExpress.XtraBars.BarButtonItem btnSec;
         private DevExpress.XtraBars.BarButtonItem btnDuzelt;
         private DevExpress.XtraBars.BarButtonItem btnYenile;
-        private DevExpress.XtraBars.BarButtonItem btnFiltrele;
-        private DevExpress.XtraBars.BarButtonItem btnKolonlar;
-        private DevExpress.XtraBars.BarButtonItem btnYazdir;
-        private DevExpress.XtraBars.BarSubItem btnGonder;
         private DevExpress.XtraBars.BarButtonItem btnCikis;
         private DevExpress.XtraBars.BarStaticItem barInsert;
         private DevExpress.XtraBars.BarStaticItem barInsertAciklama;
@@ -801,14 +797,6 @@
         private DevExpress.XtraBars.BarStaticItem barDuzeltAciklama;
         private DevExpress.XtraBars.BarStaticItem barYenile;
         private DevExpress.XtraBars.BarStaticItem barYenileAciklama;
-        private DevExpress.XtraBars.BarStaticItem barFiltrele;
-        private DevExpress.XtraBars.BarStaticItem barFiltreleAciklama;
-        private DevExpress.XtraBars.BarStaticItem barKolonlar;
-        private DevExpress.XtraBars.BarStaticItem barKolonlarAciklama;
-        private DevExpress.XtraBars.BarStaticItem barYazdir;
-        private DevExpress.XtraBars.BarStaticItem barYazdirAciklama;
-        private DevExpress.XtraBars.BarStaticItem barGonder;
-        private DevExpress.XtraBars.BarStaticItem barGonderAciklama;
         private DevExpress.XtraBars.BarStaticItem barCikis;
         private DevExpress.XtraBars.BarStaticItem barCikisAciklama;
         private DevExpress.XtraBars.BarButtonItem btnAktifPasifKartlar;
@@ -822,5 +810,17 @@
         private DevExpress.XtraBars.BarButtonItem btnTxtDosyasi;
         private DevExpress.XtraBars.PopupMenu sagMenu;
         protected DevExpress.XtraBars.BarButtonItem btnBagliKartlar;
+        protected DevExpress.XtraBars.BarButtonItem btnFiltrele;
+        protected DevExpress.XtraBars.BarButtonItem btnKolonlar;
+        protected DevExpress.XtraBars.BarButtonItem btnYazdir;
+        protected DevExpress.XtraBars.BarSubItem btnGonder;
+        protected DevExpress.XtraBars.BarStaticItem barFiltrele;
+        protected DevExpress.XtraBars.BarStaticItem barFiltreleAciklama;
+        protected DevExpress.XtraBars.BarStaticItem barKolonlar;
+        protected DevExpress.XtraBars.BarStaticItem barKolonlarAciklama;
+        protected DevExpress.XtraBars.BarStaticItem barYazdir;
+        protected DevExpress.XtraBars.BarStaticItem barYazdirAciklama;
+        protected DevExpress.XtraBars.BarStaticItem barGonder;
+        protected DevExpress.XtraBars.BarStaticItem barGonderAciklama;
     }
 }

@@ -117,45 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnFarkliKaydet.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAF3RFWHRUaXRsZQBTYXZlIEFs
-        bDtTYXZlO0FsbG4U9aEAAAB0SURBVDhPtY7LDcAgDEOZt+t0kB45MVtKUEGOGxC04vAkf4JFEJHGeVwp
-        I8rji+5kST0PuMdVY1a9GZjFDGSx/G3szAMuOWOvet9AL0Ov+lV68A1qU86wb0DNCLxD/Wcgqv40gLRi
-        Fm8g8tGA8m0zwMEaEm77x81xFWrWuQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnFarkliKaydet.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAF3RFWHRUaXRsZQBTYXZlIEFs
-        bDtTYXZlO0FsbG4U9aEAAAEiSURBVFhH7ZbRCcMwDESzWaBfnaXrdJDO0T0CGcP1lchcLlaMU8el0I8H
-        upN8Mv7yEEL4KlmzJ1kT3G+PMfKMBEP6yd8jM4vM0XJSoBKHZjr0RvqrnoczO1tOCuwBX8I8bp7+5OxD
-        A15w+pOzBw12F1ivps81oz40qF5Q6nPNqA8NqheU+lwz6kOD6gWlPteM+tCgekGpzzWjPjSoXlDCm1Uf
-        GvzOBWrwslSD3UMt0R22938B7wIX84+CDM5cvJUGfGDT/BTNVA3c4RZopmrgDrdAM1UDd7gFmqkauMMt
-        0EzVwB1ugWaSnmwmOxy5mn8UZHDm4qHG1y/l84E0fAa2R0lFHJr0UEPSkyupiEN4ss3PuAGrJ1eyZk+y
-        Zk+yZj/C8AIVSlH+AJQt0AAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnUygula.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAE3RFWHRUaXRsZQBSYW5nZTtG
-        aWx0ZXI7yXihvwAAAFVJREFUOE9j+P//P0UYqyApmKGlpeU/GmaYsuXKfxwYQ/1wMgAUIFA2QQOQ1EIY
-        IAFSDYCph5tEqgEwfXAGEh6gQETCdDYAFCCUYKyCpGCsgsTj/wwA0BzHtdFivlEAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnUygula.ImageOptions.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAE3RFWHRUaXRsZQBSYW5nZTtG
-        aWx0ZXI7yXihvwAAAN1JREFUWEftkssNwyAQRKnZHViihJSSElxC6nALhEVA+Ixx0MI6inx4MqxXM++A
-        MsZcChxKAoeSwKEkcCgJHEoCh5LEg9baANTj+TJMYPYtcAucCYT7SIGsoyVA51kCsedIICzFOwjsBWYf
-        CaSLswRcT0sgLLsvCOwlFYgdZwKBkQIZswRov4JySqYJ7NtievhLgbUsabBGgVHY0G8laOfzBkZBoZ6W
-        hCsnYAiHEOxBErGcgCEc0nBPKpGVEzCEQ1ngCQLVPxjCAZVYboGfEKgeIAFDOKASCyzft0W9AUzKVMVe
-        OotHAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>

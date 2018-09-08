@@ -90,6 +90,16 @@ namespace OgrenciTakip.UI.Win.Functions
             btnYeni.Enabled = !buttonEnabledDurumu;
             btnSil.Enabled = !buttonEnabledDurumu;
         }
+        public static void ButtonEnabledDurumu<T>(BarButtonItem btnKaydet, BarButtonItem btnFarkliKaydet, BarButtonItem btnSil, IslemTuru islemTuru, T oldEntity, T currentEntity)
+        {
+            var veriDegisimYeri = VeriDegisimYeriGetir(oldEntity, currentEntity);
+            var buttonEnabledDurumu = veriDegisimYeri == VeriDegisimYeri.Alan;
+
+            btnKaydet.Enabled = buttonEnabledDurumu;
+            btnFarkliKaydet.Enabled = islemTuru != IslemTuru.EntityInsert;
+            
+            btnSil.Enabled = !buttonEnabledDurumu;
+        }
 
         public static long IdOlustur(this IslemTuru IslemTuru, BaseEntity selectedEntity)
         {

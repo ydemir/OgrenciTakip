@@ -78,6 +78,18 @@
     <Compile Include="Forms\BaseForms\BaseEditForm.Designer.cs">
       <DependentUpon>BaseEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FiltreForms\FiltreEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FiltreForms\FiltreEditForm.Designer.cs">
+      <DependentUpon>FiltreEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FiltreForms\FiltreListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FiltreForms\FiltreListForm.Designer.cs">
+      <DependentUpon>FiltreListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\IlceForms\IlceEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +232,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BaseForms\BaseEditForm.resx">
       <DependentUpon>BaseEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FiltreForms\FiltreEditForm.resx">
+      <DependentUpon>FiltreEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FiltreForms\FiltreListForm.resx">
+      <DependentUpon>FiltreListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\IlceForms\IlceEditForm.resx">
       <DependentUpon>IlceEditForm.cs</DependentUpon>
@@ -428,5 +446,6 @@
   <ItemGroup>
     <None Include="Resources\documentmap_16x163.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
