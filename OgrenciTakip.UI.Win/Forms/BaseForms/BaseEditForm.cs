@@ -18,6 +18,7 @@ using OgrenciTakip.COMMON.Message;
 using OgrenciTakip.UI.Win.UserControls.Grid;
 using OgrenciTakip.UI.Win.Interfaces;
 using DevExpress.XtraPrinting.Native;
+using OgrenciTakip.MODEL.Entities.Base.Interfaces;
 
 namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
@@ -69,7 +70,12 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                 switch (control)
                 {
                     case FilterControl edt:
+                        
                         edt.FilterChanged += Control_EditValueChanged;
+                        break;
+                    case ComboBoxEdit edt:
+                        edt.EditValueChanged += Control_EditValueChanged;
+                        edt.SelectedValueChanged += Control_SelectedValueChanged;
                         break;
                     case MyButtonEdit edt:
                         edt.IdChanged += Control_IdChanged;
@@ -104,6 +110,14 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                 }
             }
         }
+
+        private void Control_EditValueChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected virtual void Control_SelectedValueChanged(object sender, EventArgs e) { }
+     
 
         private void Control_Leave(object sender, EventArgs e)
         {
@@ -269,6 +283,14 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             {
                 FiltreUygula();
             }
+            else if (e.Item == btnYazdir)
+            {
+                Yazdir();
+            }
+            else if (e.Item == btnBaskiOnIzleme)
+            {
+                BaskiOnIzleme();
+            }
             else if (e.Item == btnCikis)
             {
                 Close();
@@ -276,6 +298,12 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
             Cursor.Current = DefaultCursor;
         }
+
+        protected virtual void BaskiOnIzleme() { }
+       
+
+        protected virtual void Yazdir() { }
+       
 
         private void FarkliKaydet()
         {
@@ -397,6 +425,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         }
 
         protected internal virtual void Yukle() { }
+        protected internal virtual IBaseEntity ReturnEntity() { return null; }
 
 
         protected virtual void NesneyiControllereBagla() { }

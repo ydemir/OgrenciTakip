@@ -6,6 +6,7 @@ using OgrenciTakip.MODEL.Entities.Base;
 using OgrenciTakip.UI.Win.UserControls.Controls;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -194,6 +195,17 @@ namespace OgrenciTakip.UI.Win.Functions
                 return;
             }
             sagMenu.ShowPopup(Control.MousePosition);
+        }
+
+        public static List<string> YazicilariListele()
+        {
+            return PrinterSettings.InstalledPrinters.Cast<string>().ToList();
+        }
+
+        public static string DefaultYazici()
+        {
+            var settings = new PrinterSettings();
+            return settings.PrinterName;
         }
     }
 }

@@ -64,6 +64,8 @@
             this.statusBarKisayolAciklama = new DevExpress.XtraBars.BarStaticItem();
             this.btnFarkliKaydet = new DevExpress.XtraBars.BarButtonItem();
             this.btnUygula = new DevExpress.XtraBars.BarButtonItem();
+            this.btnYazdir = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBaskiOnIzleme = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -87,9 +89,11 @@
             this.statusBarKisaYol,
             this.statusBarKisayolAciklama,
             this.btnFarkliKaydet,
-            this.btnUygula});
+            this.btnUygula,
+            this.btnYazdir,
+            this.btnBaskiOnIzleme});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 11;
+            this.ribbonControl.MaxItemId = 13;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -255,6 +259,26 @@
             this.btnUygula.Name = "btnUygula";
             this.btnUygula.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
+            // btnYazdir
+            // 
+            this.btnYazdir.Caption = "Yazdır";
+            this.btnYazdir.Id = 11;
+            this.btnYazdir.ImageOptions.Image = global::OgrenciTakip.UI.Win.Properties.Resources.print_16x16;
+            this.btnYazdir.ImageOptions.LargeImage = global::OgrenciTakip.UI.Win.Properties.Resources.print_32x32;
+            this.btnYazdir.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P));
+            this.btnYazdir.Name = "btnYazdir";
+            this.btnYazdir.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // btnBaskiOnIzleme
+            // 
+            this.btnBaskiOnIzleme.Caption = "Baskı Önizleme";
+            this.btnBaskiOnIzleme.Id = 12;
+            this.btnBaskiOnIzleme.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBaskiOnIzleme.ImageOptions.Image")));
+            this.btnBaskiOnIzleme.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBaskiOnIzleme.ImageOptions.LargeImage")));
+            this.btnBaskiOnIzleme.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B));
+            this.btnBaskiOnIzleme.Name = "btnBaskiOnIzleme";
+            this.btnBaskiOnIzleme.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -270,6 +294,8 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnGeriAl);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSil);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnUygula);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnYazdir);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnBaskiOnIzleme);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCikis);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
@@ -324,5 +350,7 @@
         protected DevExpress.XtraBars.BarButtonItem btnGeriAl;
         protected DevExpress.XtraBars.BarButtonItem btnKaydet;
         protected DevExpress.XtraBars.BarButtonItem btnSil;
+        protected DevExpress.XtraBars.BarButtonItem btnYazdir;
+        protected DevExpress.XtraBars.BarButtonItem btnBaskiOnIzleme;
     }
 }
