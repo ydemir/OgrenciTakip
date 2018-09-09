@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars;
@@ -16,12 +9,16 @@ using OgrenciTakip.UI.Win.Functions;
 using OgrenciTakip.MODEL.Entities.Base;
 using OgrenciTakip.BLL.Interfaces;
 using DevExpress.XtraPrinting.Native;
+using OgrenciTakip.UI.Win.Show;
+using OgrenciTakip.UI.Win.Forms.FiltreForms;
+using OgrenciTakip.MODEL.Entities;
 
 namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseListForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
+        private long _filtreId;
         private bool _formSablonKayitEdilecek;
         private bool _tabloSablonKayitEdilecek;
         //sen şu formu açacaksın ona göre işlemler yapacaksın.
@@ -64,6 +61,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             Tablo.ColumnWidthChanged += Tablo_ColumnWidthChanged;
             Tablo.ColumnPositionChanged += Tablo_ColumnPositionChanged;
             Tablo.EndSorting += Tablo_EndSorting;
+            Tablo.FilterEditorCreated += Tablo_FilterEditorCreated;
+            Tablo.ColumnFilterChanged += Tablo_ColumnFilterChanged;
 
             //Forms Events
 
@@ -72,6 +71,20 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             FormClosing += BaseListForm_FormClosing;
             LocationChanged += BaseListForm_LocationChanged;
             SizeChanged += BaseListForm_SizeChanged;
+        }
+
+        private void Tablo_ColumnFilterChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Tablo.ActiveFilterString))
+            {
+                _filtreId = 0;
+            }
+        }
+
+        private void Tablo_FilterEditorCreated(object sender, DevExpress.XtraGrid.Views.Base.FilterControlEventArgs e)
+        {
+            e.ShowFilterEditor = false;
+            ShowEditForms<FiltreEditForm>.ShowDialogEditForm(KartTuru.Filtre, _filtreId, BaseKartTuru, Tablo.GridControl);
         }
 
         private void BaseListForm_SizeChanged(object sender, EventArgs e)
@@ -246,7 +259,14 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         protected virtual void Listele() { }
         private void FiltreSec()
         {
-            throw new NotImplementedException();
+            var entity =(Filtre) ShowListForms<FiltreListForm>.ShowDialogListForm(KartTuru.Filtre, _filtreId, BaseKartTuru, Tablo.GridControl);
+            if (entity==null)
+            {
+                return;
+            }
+
+            _filtreId = entity.Id;
+            Tablo.ActiveFilterString = entity.FiltreMetni;
         }
         private void Yazdir()
         {

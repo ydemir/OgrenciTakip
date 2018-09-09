@@ -37,7 +37,7 @@ namespace OgrenciTakip.UI.Win.Forms.FiltreForms
         }
         protected override void ShowEditForm(long id)
         {
-            var result = new ShowEditForms<FiltreEditForm>().ShowDialogEditForm(COMMON.Enums.KartTuru.Filtre, id, _filtreKartTuru, _filtreGrid);
+            var result =  ShowEditForms<FiltreEditForm>.ShowDialogEditForm(COMMON.Enums.KartTuru.Filtre, id, _filtreKartTuru, _filtreGrid);
 
             ShowEditFormDefault(result);
         }

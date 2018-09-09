@@ -53,7 +53,7 @@ namespace OgrenciTakip.BLL.General
 
         public string YeniKodVer(Expression<Func<Filtre, bool>> filter)
         {
-            return BaseYeniKodVer(COMMON.Enums.KartTuru.Ilce, x => x.Kod, filter);
+            return BaseYeniKodVer(COMMON.Enums.KartTuru.Filtre, x => x.Kod, filter);
         }
     }
 }

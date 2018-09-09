@@ -62,12 +62,12 @@
             this.statusBarAciklama = new DevExpress.XtraBars.BarStaticItem();
             this.statusBarKisaYol = new DevExpress.XtraBars.BarStaticItem();
             this.statusBarKisayolAciklama = new DevExpress.XtraBars.BarStaticItem();
+            this.btnFarkliKaydet = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUygula = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.btnFarkliKaydet = new DevExpress.XtraBars.BarButtonItem();
-            this.btnUygula = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             this.SuspendLayout();
             // 
@@ -237,6 +237,24 @@
             this.statusBarKisayolAciklama.ItemAppearance.Normal.Options.UseForeColor = true;
             this.statusBarKisayolAciklama.Name = "statusBarKisayolAciklama";
             // 
+            // btnFarkliKaydet
+            // 
+            this.btnFarkliKaydet.Caption = "Farklı Kaydet";
+            this.btnFarkliKaydet.Id = 9;
+            this.btnFarkliKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFarkliKaydet.ImageOptions.Image")));
+            this.btnFarkliKaydet.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFarkliKaydet.ImageOptions.LargeImage")));
+            this.btnFarkliKaydet.Name = "btnFarkliKaydet";
+            this.btnFarkliKaydet.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // btnUygula
+            // 
+            this.btnUygula.Caption = "Uygula";
+            this.btnUygula.Id = 10;
+            this.btnUygula.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUygula.ImageOptions.Image")));
+            this.btnUygula.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUygula.ImageOptions.LargeImage")));
+            this.btnUygula.Name = "btnUygula";
+            this.btnUygula.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -270,24 +288,6 @@
             // 
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "ribbonPage2";
-            // 
-            // btnFarkliKaydet
-            // 
-            this.btnFarkliKaydet.Caption = "Farklı Kaydet";
-            this.btnFarkliKaydet.Id = 9;
-            this.btnFarkliKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFarkliKaydet.ImageOptions.Image")));
-            this.btnFarkliKaydet.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFarkliKaydet.ImageOptions.LargeImage")));
-            this.btnFarkliKaydet.Name = "btnFarkliKaydet";
-            this.btnFarkliKaydet.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // btnUygula
-            // 
-            this.btnUygula.Caption = "Uygula";
-            this.btnUygula.Id = 10;
-            this.btnUygula.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUygula.ImageOptions.Image")));
-            this.btnUygula.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUygula.ImageOptions.LargeImage")));
-            this.btnUygula.Name = "btnUygula";
-            this.btnUygula.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // BaseEditForm
             // 

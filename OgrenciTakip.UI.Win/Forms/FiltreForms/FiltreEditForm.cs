@@ -45,23 +45,28 @@ namespace OgrenciTakip.UI.Win.Forms.FiltreForms
         {
             txtFiltreMetni.SourceControl = _filtreGrid;
 
-            if (BaseIslemTuru==IslemTuru.EntityInsert)
+            while (true)
             {
-                OldEntity = new Filtre();
-                Id = BaseIslemTuru.IdOlustur(OldEntity);
-                txtKod.Text = ((FiltreBll)Bll).YeniKodVer(x => x.KartTuru==_filtreKartTuru);
-
-
-            }
-            else
-            {
-                OldEntity = ((FiltreBll)Bll).Single(FilterFunctions.Filter<Filtre>(Id));
-                if (OldEntity==null)
+                if (BaseIslemTuru == IslemTuru.EntityInsert)
                 {
-                    BaseIslemTuru = IslemTuru.EntityInsert;
+                    OldEntity = new Filtre();
+                    Id = BaseIslemTuru.IdOlustur(OldEntity);
+                    txtKod.Text = ((FiltreBll)Bll).YeniKodVer(x => x.KartTuru == _filtreKartTuru);
+
 
                 }
-                NesneyiControllereBagla();
+                else
+                {
+                    OldEntity = ((FiltreBll)Bll).Single(FilterFunctions.Filter<Filtre>(Id));
+                    if (OldEntity == null)
+                    {
+                        BaseIslemTuru = IslemTuru.EntityInsert;
+                        continue;
+
+                    }
+                    NesneyiControllereBagla();
+                }
+                break;
             }
         }
 
@@ -70,7 +75,7 @@ namespace OgrenciTakip.UI.Win.Forms.FiltreForms
             var entity = (Filtre)OldEntity;
             txtKod.Text = entity.Kod;
             txtFiltreAdi.Text = entity.FiltreAdi;
-            txtFiltreMetni.Text = entity.FiltreMetni;
+            txtFiltreMetni.FilterString = entity.FiltreMetni;
       
 
         }

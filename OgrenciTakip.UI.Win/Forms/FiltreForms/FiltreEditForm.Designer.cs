@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FiltreEditForm));
             DevExpress.XtraLayout.ColumnDefinition columnDefinition1 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.ColumnDefinition columnDefinition2 = new DevExpress.XtraLayout.ColumnDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition1 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition2 = new DevExpress.XtraLayout.RowDefinition();
             DevExpress.XtraLayout.RowDefinition rowDefinition3 = new DevExpress.XtraLayout.RowDefinition();
-            this.btnFarkliKaydet = new DevExpress.XtraBars.BarButtonItem();
-            this.btnUygula = new DevExpress.XtraBars.BarButtonItem();
             this.myDataLayoutControl = new OgrenciTakip.UI.Win.UserControls.Controls.MyDataLayoutControl();
             this.txtFiltreMetni = new OgrenciTakip.UI.Win.UserControls.Controls.MyFilterControl();
             this.txtFiltreAdi = new OgrenciTakip.UI.Win.UserControls.Controls.MyTextEdit();
@@ -58,32 +55,8 @@
             // ribbonControl
             // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
-            this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnFarkliKaydet,
-            this.btnUygula});
-            this.ribbonControl.MaxItemId = 11;
             this.ribbonControl.Size = new System.Drawing.Size(465, 102);
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
-            // 
-            // btnFarkliKaydet
-            // 
-            this.btnFarkliKaydet.Caption = "Farklı Kaydet";
-            this.btnFarkliKaydet.Id = 9;
-            this.btnFarkliKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFarkliKaydet.ImageOptions.Image")));
-            this.btnFarkliKaydet.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFarkliKaydet.ImageOptions.LargeImage")));
-            this.btnFarkliKaydet.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F2));
-            this.btnFarkliKaydet.Name = "btnFarkliKaydet";
-            this.btnFarkliKaydet.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // btnUygula
-            // 
-            this.btnUygula.Caption = "Uygula";
-            this.btnUygula.Id = 10;
-            this.btnUygula.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUygula.ImageOptions.Image")));
-            this.btnUygula.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUygula.ImageOptions.LargeImage")));
-            this.btnUygula.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.F8);
-            this.btnUygula.Name = "btnUygula";
-            this.btnUygula.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // myDataLayoutControl
             // 
@@ -93,6 +66,7 @@
             this.myDataLayoutControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myDataLayoutControl.Location = new System.Drawing.Point(0, 102);
             this.myDataLayoutControl.Name = "myDataLayoutControl";
+            this.myDataLayoutControl.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(517, 10, 650, 400);
             this.myDataLayoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.myDataLayoutControl.Root = this.layoutControlGroup1;
             this.myDataLayoutControl.Size = new System.Drawing.Size(465, 186);
@@ -151,7 +125,7 @@
             this.layoutControlItem2,
             this.layoutControlItem3});
             this.layoutControlGroup1.LayoutMode = DevExpress.XtraLayout.Utils.LayoutMode.Table;
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Name = "Root";
             columnDefinition1.SizeType = System.Windows.Forms.SizeType.Absolute;
             columnDefinition1.Width = 200D;
             columnDefinition2.SizeType = System.Windows.Forms.SizeType.Percent;
@@ -235,8 +209,6 @@
 
         #endregion
 
-        private DevExpress.XtraBars.BarButtonItem btnFarkliKaydet;
-        private DevExpress.XtraBars.BarButtonItem btnUygula;
         private UserControls.Controls.MyDataLayoutControl myDataLayoutControl;
         private UserControls.Controls.MyFilterControl txtFiltreMetni;
         private UserControls.Controls.MyTextEdit txtFiltreAdi;

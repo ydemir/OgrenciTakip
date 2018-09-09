@@ -27,7 +27,7 @@ namespace OgrenciTakip.UI.Win.Show
             }
         }
 
-        public long ShowDialogEditForm(KartTuru kartTuru, long id ,params object[] prm)
+        public static long ShowDialogEditForm(KartTuru kartTuru, long id ,params object[] prm)
         {
             //Yetki kontrolü
 
