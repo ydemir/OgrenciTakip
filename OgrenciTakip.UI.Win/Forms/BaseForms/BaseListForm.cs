@@ -268,9 +268,9 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             _filtreId = entity.Id;
             Tablo.ActiveFilterString = entity.FiltreMetni;
         }
-        private void Yazdir()
+        protected virtual void Yazdir()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void FormCaptionAyarla()
