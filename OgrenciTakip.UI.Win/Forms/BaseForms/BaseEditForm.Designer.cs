@@ -53,6 +53,16 @@
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseEditForm));
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem11 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem5 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnYeni = new DevExpress.XtraBars.BarButtonItem();
             this.btnKaydet = new DevExpress.XtraBars.BarButtonItem();
@@ -267,6 +277,18 @@
             this.btnYazdir.ImageOptions.LargeImage = global::OgrenciTakip.UI.Win.Properties.Resources.print_32x32;
             this.btnYazdir.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P));
             this.btnYazdir.Name = "btnYazdir";
+            toolTipTitleItem11.ImageOptions.Image = global::OgrenciTakip.UI.Win.Properties.Resources.comment_16x16;
+            toolTipTitleItem11.Text = "( Ctrl + P )";
+            toolTipItem6.LeftIndent = 6;
+            toolTipItem6.Text = "Yazdır";
+            toolTipTitleItem12.ImageOptions.Image = global::OgrenciTakip.UI.Win.Properties.Resources.suggestion_16x16;
+            toolTipTitleItem12.LeftIndent = 6;
+            toolTipTitleItem12.Text = "Rapor Yazdırılmak Üzere Yazıcıya Gönderilir.";
+            superToolTip6.Items.Add(toolTipTitleItem11);
+            superToolTip6.Items.Add(toolTipItem6);
+            superToolTip6.Items.Add(toolTipSeparatorItem5);
+            superToolTip6.Items.Add(toolTipTitleItem12);
+            this.btnYazdir.SuperTip = superToolTip6;
             this.btnYazdir.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // btnBaskiOnIzleme
@@ -277,6 +299,18 @@
             this.btnBaskiOnIzleme.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBaskiOnIzleme.ImageOptions.LargeImage")));
             this.btnBaskiOnIzleme.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B));
             this.btnBaskiOnIzleme.Name = "btnBaskiOnIzleme";
+            toolTipTitleItem13.ImageOptions.Image = global::OgrenciTakip.UI.Win.Properties.Resources.comment_16x16;
+            toolTipTitleItem13.Text = "( Crtl + B )";
+            toolTipItem7.LeftIndent = 6;
+            toolTipItem7.Text = "Baskı Önizleme";
+            toolTipTitleItem14.ImageOptions.Image = global::OgrenciTakip.UI.Win.Properties.Resources.suggestion_16x16;
+            toolTipTitleItem14.LeftIndent = 6;
+            toolTipTitleItem14.Text = "Rapor Baskı Önizleme Modunda Açılır";
+            superToolTip7.Items.Add(toolTipTitleItem13);
+            superToolTip7.Items.Add(toolTipItem7);
+            superToolTip7.Items.Add(toolTipSeparatorItem6);
+            superToolTip7.Items.Add(toolTipTitleItem14);
+            this.btnBaskiOnIzleme.SuperTip = superToolTip7;
             this.btnBaskiOnIzleme.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // ribbonPage1

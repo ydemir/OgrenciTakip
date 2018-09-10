@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using OgrenciTakip.COMMON.Enums;
@@ -24,13 +17,11 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
     public partial class BaseEditForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        #region Variables
+
         private bool _formSablonKayitEdilecek;
-        protected internal IslemTuru BaseIslemTuru;
-        protected internal long Id;
-        protected internal bool RefreshYapilacak;
         protected MyDataLayoutControl DataLayoutControl;
         protected MyDataLayoutControl[] DataLayoutControls;
-
         protected IBaseBll Bll;
         protected KartTuru BaseKartTuru;
         protected BaseEntity OldEntity;
@@ -39,6 +30,12 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         protected bool KayitSonrasiFormuKapat = true;
         protected BarItem[] ShowItems;
         protected BarItem[] HideItems;
+        protected internal IslemTuru BaseIslemTuru;
+        protected internal long Id;
+        protected internal bool RefreshYapilacak; 
+
+        #endregion
+
         public BaseEditForm()
         {
             InitializeComponent();
@@ -111,63 +108,114 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             }
         }
 
-        private void Control_EditValueChanged(object sender, EventArgs e)
+        private void EntityDelete()
         {
-            if (!IsLoaded)
+            if (!((IBaseCommonDll)Bll).Delete(OldEntity))
             {
                 return;
             }
-            GuncelNesneOlustur();
+            RefreshYapilacak = true;
+            Close();
         }
 
-        protected virtual void Control_SelectedValueChanged(object sender, EventArgs e) { }
-     
-
-        private void Control_Leave(object sender, EventArgs e)
+        private void ButonGizleGoster()
         {
-            statusBarKisaYol.Visibility = BarItemVisibility.Never;
-            statusBarKisayolAciklama.Visibility = BarItemVisibility.Never;
+
+
+            ShowItems?.ForEach(x => x.Visibility = BarItemVisibility.Always);
+            HideItems?.ForEach(x => x.Visibility = BarItemVisibility.Never);
         }
 
-        private void Control_GotFocus(object sender, EventArgs e)
+        private void GeriAl()
         {
-            var type = sender.GetType();
-            if (type==typeof(MyButtonEdit) || type ==typeof(MyGridView) || type==typeof(MyPictureEdit) || type == typeof(MyComboBoxEdit) || type == typeof(MyDateEdit))
-            {
-                statusBarKisaYol.Visibility = BarItemVisibility.Always;
-                statusBarKisayolAciklama.Visibility = BarItemVisibility.Always;
-
-                statusBarAciklama.Caption = ((IStatusBarAciklama)sender).StatusBarAciklama;
-                statusBarKisaYol.Caption = ((IStatusBarKisaYol)sender).StatusBarKisaYol;
-                statusBarKisayolAciklama.Caption = ((IStatusBarKisaYol)sender).StatusBarKisaYolAciklama;
-            }
-            else if(sender is IStatusBarAciklama ctrl)
-            {
-                statusBarAciklama.Caption = ctrl.StatusBarAciklama;
-            }
-        }
-
-        private void BaseEditForm_SizeChanged(object sender, EventArgs e)
-        {
-            _formSablonKayitEdilecek = true;
-        }
-
-        private void BaseEditForm_LocationChanged(object sender, EventArgs e)
-        {
-            _formSablonKayitEdilecek = true;
-        }
-
-        private void BaseEditForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            SablonKaydet();
-            if (btnKaydet.Visibility==BarItemVisibility.Never||!btnKaydet.Enabled)
+            if (Messages.HayirSeciliEvetHayir("Yapılan değişiklikler Geri Alınacaktır. Onaylıyor Musunuz ?", "GeriAl Onay") != DialogResult.Yes)
             {
                 return;
             }
-
-            if (!Kaydet(true))
+            if (BaseIslemTuru == IslemTuru.EntityUpdate)
             {
-                e.Cancel = true;
+                Yukle();
+            }
+            else
+            {
+                Close();
+            }
+
+        }
+
+        private bool Kaydet(bool kapanis)
+        {
+            bool KayitIslemi()
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                switch (BaseIslemTuru)
+                {
+                    case IslemTuru.EntityInsert:
+                        if (EntityInsert())
+                        {
+                            return KayitSonrasiIslemler();
+                        }
+                        break;
+                    case IslemTuru.EntityUpdate:
+                        if (EntityUpdate())
+                        {
+                            return KayitSonrasiIslemler();
+                        }
+                        break;
+                }
+                bool KayitSonrasiIslemler()
+                {
+                    OldEntity = CurrentEntity;
+                    RefreshYapilacak = true;
+                    ButtonEnabledDurumu();
+                    if (KayitSonrasiFormuKapat)
+                    {
+                        Close();
+                    }
+                    else
+                    {
+                        BaseIslemTuru = BaseIslemTuru == IslemTuru.EntityInsert ? IslemTuru.EntityUpdate : BaseIslemTuru;
+                    }
+                    return true;
+                }
+                return false;
+            }
+            var result = kapanis ? Messages.KapanisMesaj() : Messages.KayitMesaj();
+
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    return KayitIslemi();
+                case DialogResult.No:
+                    if (kapanis)
+                    {
+                        btnKaydet.Enabled = false;
+                    }
+                    return true;
+                case DialogResult.Cancel:
+                    return false;
+
+
+            }
+            return false;
+        }
+
+        private void SablonYukle()
+        {
+            Name.FormSablonYukle(this);
+        }
+
+        private void FarkliKaydet()
+        {
+            if (Messages.EvetSeciliEvetHayir("Bu Filtre Referans Alınarak Yeni Kayıt Oluşturulacaktı Onaylıyor Musunuz ?", "Kayıt Onay") != DialogResult.Yes)
+            {
+                return;
+            }
+            BaseIslemTuru = IslemTuru.EntityInsert;
+            Yukle();
+            if (Kaydet(true))
+            {
+                Close();
             }
         }
 
@@ -181,76 +229,40 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             }
         }
 
-        private void SablonYukle()
+        protected virtual void BaskiOnIzleme() { }
+
+        protected virtual void Yazdir() { }
+
+        protected virtual void SecipYap(object sender) { }
+
+        protected virtual bool EntityInsert()
         {
-            Name.FormSablonYukle(this);
+            return ((IBaseGenelBll)Bll).Insert(CurrentEntity);
+        }
+        protected virtual bool EntityUpdate()
+        {
+            return ((IBaseGenelBll)Bll).Update(OldEntity, CurrentEntity);
         }
 
-        protected virtual void Control_EnabledChange(object sender, EventArgs e)
+        protected virtual void NesneyiControllereBagla() { }
+        protected virtual void GuncelNesneOlustur() { }
+
+        protected internal virtual void Yukle() { }
+        protected internal virtual IBaseEntity ReturnEntity() { return null; }
+        protected internal virtual void ButtonEnabledDurumu()
         {
-           
+            if (!IsLoaded) return;
+            GeneralFunctions.ButtonEnabledDurumu(btnYeni, btnKaydet, btnGeriAl, btnSil, OldEntity, CurrentEntity);
+
         }
 
-       
-
-        private void Control_DoubleClick(object sender, EventArgs e)
-        {
-            SecipYap(sender);
-        }
-
-        private void Control_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-            SecipYap(sender);
-        }
-
-        private void Control_IdChanged(object sender, IdChangedEventArgs e)
-        {
-            if (!IsLoaded)
-            {
-                return;
-            }
-            GuncelNesneOlustur();
-        }
-
-        private void Control_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode==Keys.Escape)
-            {
-                Close();
-            }
-            if (sender is MyButtonEdit edt)
-            {
-                switch (e.KeyCode)
-                {
-                    case Keys.Delete when e.Control && e.Shift:
-                        edt.Id = null;
-                        edt.EditValue = null;
-                        break;
-
-                    case Keys.F4:
-                    case Keys.Down when e.Modifiers == Keys.Alt:
-                        SecipYap(edt);
-                        break;
-                }
-            }
-        }
-
-        private void BaseEditForm_Load(object sender, EventArgs e)
-        {
-            IsLoaded = true;
-            GuncelNesneOlustur();
-            SablonYukle();
-            ButonGizleGoster();
-          
-
-            //Guncelleme yapılacak
-        }
+        //EVENTS
 
         private void Button_ItemClick(object sender, ItemClickEventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            if (e.Item==btnYeni)
+            if (e.Item == btnYeni)
             {
                 //Yetki kontrolü yap
                 BaseIslemTuru = IslemTuru.EntityInsert;
@@ -260,7 +272,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             {
                 Kaydet(false);
             }
-            else if (e.Item==btnFarkliKaydet)
+            else if (e.Item == btnFarkliKaydet)
             {
                 //Yetki kontrolü yap
 
@@ -296,143 +308,130 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             Cursor.Current = DefaultCursor;
         }
 
-        protected virtual void BaskiOnIzleme() { }
-       
-
-        protected virtual void Yazdir() { }
-       
-
-        private void FarkliKaydet()
+        private void BaseEditForm_LocationChanged(object sender, EventArgs e)
         {
-            if (Messages.EvetSeciliEvetHayir("Bu Filtre Referans Alınarak Yeni Kayıt Oluşturulacaktı Onaylıyor Musunuz ?","Kayıt Onay")!=DialogResult.Yes)
+            _formSablonKayitEdilecek = true;
+        }
+
+        private void BaseEditForm_SizeChanged(object sender, EventArgs e)
+        {
+            _formSablonKayitEdilecek = true;
+        }
+
+        private void BaseEditForm_Load(object sender, EventArgs e)
+        {
+            IsLoaded = true;
+            GuncelNesneOlustur();
+            SablonYukle();
+            ButonGizleGoster();
+
+
+            //Guncelleme yapılacak
+        }
+
+        private void BaseEditForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SablonKaydet();
+            if (btnKaydet.Visibility == BarItemVisibility.Never || !btnKaydet.Enabled)
             {
                 return;
             }
-            BaseIslemTuru = IslemTuru.EntityInsert;
-            Yukle();
-            if (Kaydet(true))
+
+            if (!Kaydet(true))
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void Control_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
             {
                 Close();
             }
+            if (sender is MyButtonEdit edt)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Delete when e.Control && e.Shift:
+                        edt.Id = null;
+                        edt.EditValue = null;
+                        break;
+
+                    case Keys.F4:
+                    case Keys.Down when e.Modifiers == Keys.Alt:
+                        SecipYap(edt);
+                        break;
+                }
+            }
         }
 
-        protected virtual void SecipYap(object sender) { }
-
-        private void EntityDelete()
+        private void Control_GotFocus(object sender, EventArgs e)
         {
-            if (!((IBaseCommonDll)Bll).Delete(OldEntity))
+            var type = sender.GetType();
+            if (type == typeof(MyButtonEdit) || type == typeof(MyGridView) || type == typeof(MyPictureEdit) || type == typeof(MyComboBoxEdit) || type == typeof(MyDateEdit))
+            {
+                statusBarKisaYol.Visibility = BarItemVisibility.Always;
+                statusBarKisayolAciklama.Visibility = BarItemVisibility.Always;
+
+                statusBarAciklama.Caption = ((IStatusBarAciklama)sender).StatusBarAciklama;
+                statusBarKisaYol.Caption = ((IStatusBarKisaYol)sender).StatusBarKisaYol;
+                statusBarKisayolAciklama.Caption = ((IStatusBarKisaYol)sender).StatusBarKisaYolAciklama;
+            }
+            else if (sender is IStatusBarAciklama ctrl)
+            {
+                statusBarAciklama.Caption = ctrl.StatusBarAciklama;
+            }
+        }
+
+        private void Control_Leave(object sender, EventArgs e)
+        {
+            statusBarKisaYol.Visibility = BarItemVisibility.Never;
+            statusBarKisayolAciklama.Visibility = BarItemVisibility.Never;
+        }
+
+        private void Control_EditValueChanged(object sender, EventArgs e)
+        {
+            if (!IsLoaded)
             {
                 return;
             }
-            RefreshYapilacak = true;
-            Close();
+            GuncelNesneOlustur();
         }
 
-        private void ButonGizleGoster()
-        {
-         
+        protected virtual void Control_SelectedValueChanged(object sender, EventArgs e) { }
 
-            ShowItems?.ForEach(x => x.Visibility = BarItemVisibility.Always);
-            HideItems?.ForEach(x => x.Visibility = BarItemVisibility.Never);
-        }
-
-        private void GeriAl()
+        private void Control_IdChanged(object sender, IdChangedEventArgs e)
         {
-            if (Messages.HayirSeciliEvetHayir("Yapılan değişiklikler Geri Alınacaktır. Onaylıyor Musunuz ?","GeriAl Onay")!=DialogResult.Yes)
+            if (!IsLoaded)
             {
                 return;
             }
-            if (BaseIslemTuru==IslemTuru.EntityUpdate)
-            {
-                Yukle();
-            }
-            else
-            {
-                Close();
-            }
-           
+            GuncelNesneOlustur();
         }
 
-        private bool Kaydet(bool kapanis)
+        protected virtual void Control_EnabledChange(object sender, EventArgs e)
         {
-            bool KayitIslemi()
-            {
-                Cursor.Current = Cursors.WaitCursor;
-                switch (BaseIslemTuru)
-                {
-                    case IslemTuru.EntityInsert:
-                        if (EntityInsert())
-                        {
-                            return KayitSonrasiIslemler();
-                        }
-                        break;
-                    case IslemTuru.EntityUpdate:
-                        if (EntityUpdate())
-                        {
-                            return KayitSonrasiIslemler();
-                        }
-                        break;
-                }
-                bool KayitSonrasiIslemler()
-                {
-                    OldEntity = CurrentEntity;
-                    RefreshYapilacak = true;
-                    ButtonEnabledDurumu();
-                    if (KayitSonrasiFormuKapat)
-                    {
-                        Close();
-                    }
-                    else
-                    {
-                        BaseIslemTuru =BaseIslemTuru== IslemTuru.EntityInsert ? IslemTuru.EntityUpdate : BaseIslemTuru;
-                    }
-                    return true;
-                }
-                return false;
-            }
-            var result = kapanis ? Messages.KapanisMesaj() : Messages.KayitMesaj();
 
-            switch (result)
-            {
-                case DialogResult.Yes:
-                    return KayitIslemi();
-                case DialogResult.No:
-                    if (kapanis)
-                    {
-                        btnKaydet.Enabled = false;
-                    }
-                    return true;
-                case DialogResult.Cancel:
-                    return false;
-            
-             
-            }
-            return false;
         }
+
+        private void Control_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            SecipYap(sender);
+        }
+
+        private void Control_DoubleClick(object sender, EventArgs e)
+        {
+            SecipYap(sender);
+        }
+
+
+
+       
+
+      
 
         
-
-        protected virtual bool EntityInsert()
-        {
-            return ((IBaseGenelBll)Bll).Insert(CurrentEntity);
-        }
-        protected virtual bool EntityUpdate()
-        {
-            return ((IBaseGenelBll)Bll).Update(OldEntity, CurrentEntity);
-        }
-
-        protected internal virtual void Yukle() { }
-        protected internal virtual IBaseEntity ReturnEntity() { return null; }
-
-
-        protected virtual void NesneyiControllereBagla() { }
-        protected virtual void GuncelNesneOlustur() { }
-        protected internal virtual void ButtonEnabledDurumu()
-        {
-            if (!IsLoaded) return;
-            GeneralFunctions.ButtonEnabledDurumu(btnYeni, btnKaydet, btnGeriAl, btnSil, OldEntity, CurrentEntity);
-
-        }
 
     }
 }
