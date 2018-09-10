@@ -12,6 +12,7 @@ using DevExpress.XtraPrinting.Native;
 using OgrenciTakip.UI.Win.Show;
 using OgrenciTakip.UI.Win.Forms.FiltreForms;
 using OgrenciTakip.MODEL.Entities;
+using OgrenciTakip.UI.Win.GenelForms;
 
 namespace OgrenciTakip.UI.Win.Forms.BaseForms
 {
@@ -270,7 +271,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
         }
         protected virtual void Yazdir()
         {
-            
+            TablePrintingFunctions.Yazdir(Tablo, Tablo.ViewCaption, AnaForm.SubeAdi);
         }
 
         private void FormCaptionAyarla()

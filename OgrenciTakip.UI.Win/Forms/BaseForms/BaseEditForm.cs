@@ -113,7 +113,11 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
         private void Control_EditValueChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (!IsLoaded)
+            {
+                return;
+            }
+            GuncelNesneOlustur();
         }
 
         protected virtual void Control_SelectedValueChanged(object sender, EventArgs e) { }
@@ -187,14 +191,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
            
         }
 
-        private void Control_EditValueChanged(object sender, EventArgs e)
-        {
-            if (!IsLoaded)
-            {
-                return;
-            }
-            GuncelNesneOlustur();
-        }
+       
 
         private void Control_DoubleClick(object sender, EventArgs e)
         {

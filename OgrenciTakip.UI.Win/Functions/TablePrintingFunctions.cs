@@ -42,12 +42,13 @@ namespace OgrenciTakip.UI.Win.Functions
             _link.Component = _tablo.GridControl;
             _link.PaperKind = System.Drawing.Printing.PaperKind.Letter;
             _link.Margins = new System.Drawing.Printing.Margins(59, 59, 115, 48);
-            _link.CreateDocument(_ps);
             _link.CreateMarginalHeaderArea += _Link_CreateMarginalHeaderArea;
+            _link.CreateDocument(_ps);
 
             switch (_dp.DokumSekli)
             {
                 case COMMON.Enums.DokumSekli.TabloBaslikOnIzleme:
+                    ShowRibbonForms<RaporOnIzleme>.ShowForm(true, _ps, _dp.RaporBaslik);
                     break;
 
                 case COMMON.Enums.DokumSekli.TabloYazdir:

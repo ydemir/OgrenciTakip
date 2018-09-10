@@ -138,6 +138,12 @@
     <Compile Include="GenelForms\AnaForm.Designer.cs">
       <DependentUpon>AnaForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GenelForms\RaporOnIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenelForms\RaporOnIzleme.Designer.cs">
+      <DependentUpon>RaporOnIzleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="GenelForms\TabloDokumParametreleri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,7 @@
     <Compile Include="Show\Interfaces\IBaseFormShow.cs" />
     <Compile Include="Show\ShowEditForms.cs" />
     <Compile Include="Show\ShowListForms.cs" />
+    <Compile Include="Show\ShowRibbonForms.cs" />
     <Compile Include="UserControls\Controls\MyButtonEdit.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -267,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GenelForms\AnaForm.resx">
       <DependentUpon>AnaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenelForms\RaporOnIzleme.resx">
+      <DependentUpon>RaporOnIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GenelForms\TabloDokumParametreleri.resx">
       <DependentUpon>TabloDokumParametreleri.cs</DependentUpon>
