@@ -1,5 +1,6 @@
 ﻿using OgrenciTakip.BLL.Base;
 using OgrenciTakip.BLL.Interfaces;
+using OgrenciTakip.COMMON.Enums;
 using OgrenciTakip.DATA.Contexts;
 using OgrenciTakip.MODEL.Entities;
 using OgrenciTakip.MODEL.Entities.Base;
@@ -11,40 +12,12 @@ using System.Windows.Forms;
 
 namespace OgrenciTakip.BLL.General
 {
-    public class IlBll : BaseBll<Il, OgrenciTakipContext>,IBaseGenelBll,IBaseCommonDll
+    public class IlBll : BaseGenelBll<Il>,IBaseGenelBll,IBaseCommonDll
     {
-        public IlBll() { }
+        public IlBll():base (KartTuru.Il) { }
 
-        public IlBll(Control ctrl):base(ctrl) { }
+        public IlBll(Control ctrl):base(ctrl,KartTuru.Il) { }
 
-        public BaseEntity Single(Expression<Func<Il, bool>> filter)
-        {
-            return BaseSingle(filter, x => x);
-        }
-
-        public IEnumerable<BaseEntity> List(Expression<Func<Il, bool>> filter)
-        {
-            return BaseList(filter, x => x).OrderBy(x => x.Kod).ToList();
-        }
-
-        public bool Insert(BaseEntity entity)
-        {
-            return BaseInsert(entity, x => x.Kod == entity.Kod);
-        }
-
-        public bool Update(BaseEntity oldEntity, BaseEntity currentEntity)
-        {
-            return BaseUpdate(oldEntity, currentEntity, x => x.Kod == currentEntity.Kod);
-        }
-
-        public bool Delete(BaseEntity entity)
-        {
-            return BaseDelete(entity, COMMON.Enums.KartTuru.Il);
-        }
-
-        public string YeniKodVer()
-        {
-            return BaseYeniKodVer(COMMON.Enums.KartTuru.Il, x => x.Kod);
-        }
+       
     }
 }

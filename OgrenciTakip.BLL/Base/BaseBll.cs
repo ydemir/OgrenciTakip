@@ -17,15 +17,17 @@ using System.Windows.Forms;
 
 namespace OgrenciTakip.BLL.Base
 {
-   public class BaseBll<T,TContext> :IBaseBll where T:BaseEntity where TContext:DbContext
+    public class BaseBll<T, TContext> : IBaseBll where T : BaseEntity where TContext : DbContext
     {
+        #region Veriables
         private readonly Control _ctrl;
-        private IUnitOfWork<T> _uow;
+        private IUnitOfWork<T> _uow; 
+        #endregion
 
-        private bool Validation(IslemTuru islemTuru,BaseEntity oldEntity, BaseEntity currentEntity,Expression<Func<T,bool>> filter)
+        private bool Validation(IslemTuru islemTuru, BaseEntity oldEntity, BaseEntity currentEntity, Expression<Func<T, bool>> filter)
         {
             var errorControl = GetValidationErrorControl();
-            if (errorControl==null)
+            if (errorControl == null)
             {
                 return true;
             }
@@ -39,15 +41,15 @@ namespace OgrenciTakip.BLL.Base
                 {
                     foreach (var property in typeof(T).GetPropertyAttributesFromType<Kod>())
                     {
-                        if (property.Attribute==null)
+                        if (property.Attribute == null)
                         {
                             continue;
                         }
-                        if ((islemTuru==IslemTuru.EntityInsert|| oldEntity.Kod==currentEntity.Kod) && islemTuru==IslemTuru.EntityUpdate )
+                        if ((islemTuru == IslemTuru.EntityInsert || oldEntity.Kod == currentEntity.Kod) && islemTuru == IslemTuru.EntityUpdate)
                         {
                             continue;
                         }
-                        if (_uow.Rep.Count(filter)<1)
+                        if (_uow.Rep.Count(filter) < 1)
                         {
                             continue;
                         }
@@ -70,13 +72,13 @@ namespace OgrenciTakip.BLL.Base
 
                         var value = property.Property.GetValue(currentEntity);
 
-                        if (property.Property.PropertyType==typeof (long))
+                        if (property.Property.PropertyType == typeof(long))
                         {
-                            if ((long)value==0)
+                            if ((long)value == 0)
                             {
                                 value = null;
                             }
-                            
+
                         }
                         if (!string.IsNullOrEmpty(value?.ToString()))
                         {
@@ -100,7 +102,7 @@ namespace OgrenciTakip.BLL.Base
             _ctrl = ctrl;
         }
 
-        protected TResult BaseSingle<TResult>(Expression<Func<T,bool>> filter,Expression<Func<T,TResult>> selector)
+        protected TResult BaseSingle<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> selector)
         {
             //Projemizde 2 modül olacak Yönetim Modulu ve Ogrenci takip Modülü, giriş yaparken iki farklı context olduğu için sürekli değişecek
             //Her zaman güncel connection string e ihtiyacımız olacaak 
@@ -110,17 +112,17 @@ namespace OgrenciTakip.BLL.Base
             return _uow.Rep.Find(filter, selector);
         }
 
-        protected IQueryable<TResult> BaseList<TResult>(Expression<Func<T,bool>>filter,Expression<Func<T,TResult>> selector)
+        protected IQueryable<TResult> BaseList<TResult>(Expression<Func<T, bool>> filter, Expression<Func<T, TResult>> selector)
         {
             //Her seferinde UnitofWork un instance ını alacaağız çünkü güncel connection string ile işlem yapacağız.
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
             return _uow.Rep.Select(filter, selector);
         }
 
-        protected bool BaseInsert(BaseEntity entity,Expression<Func<T,bool>> filter)
+        protected bool BaseInsert(BaseEntity entity, Expression<Func<T, bool>> filter)
         {
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
-            if (!Validation(IslemTuru.EntityInsert,null,entity,filter))
+            if (!Validation(IslemTuru.EntityInsert, null, entity, filter))
             {
                 return false;
             }
@@ -135,7 +137,7 @@ namespace OgrenciTakip.BLL.Base
         protected bool BaseUpdate(BaseEntity oldEntity, BaseEntity currentEntity, Expression<Func<T, bool>> filter)
         {
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
-            if (!Validation(IslemTuru.EntityUpdate,oldEntity,currentEntity,filter))
+            if (!Validation(IslemTuru.EntityUpdate, oldEntity, currentEntity, filter))
             {
                 return false;
             }
@@ -145,24 +147,24 @@ namespace OgrenciTakip.BLL.Base
             //Gelen currentEntity i TEntity e çevirmemiz lazım.
 
             //değişenler yoksa  liste olarak gelcek 
-            if (degisenAlanlar.Count==0)
+            if (degisenAlanlar.Count == 0)
             {
                 //false yaparsak sanki database de hata var o yüzden geri dönüyor gibi bir durum oluyor
                 return true;
             }
             _uow.Rep.Update(currentEntity.EntityConvert<T>(), degisenAlanlar);
 
-          
+
             return _uow.Save();
         }
 
-        protected bool BaseDelete(BaseEntity entity,KartTuru kartTuru,bool mesajVer = true)
+        protected bool BaseDelete(BaseEntity entity, KartTuru kartTuru, bool mesajVer = true)
         {
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
 
             if (mesajVer)
             {
-                if (Messages.SilMesaj(kartTuru.ToName())!=DialogResult.Yes)
+                if (Messages.SilMesaj(kartTuru.ToName()) != DialogResult.Yes)
                 {
                     return false;
                 }
@@ -173,25 +175,25 @@ namespace OgrenciTakip.BLL.Base
         }
 
 
-        protected string BaseYeniKodVer(KartTuru kartTuru,Expression<Func<T,string>> filter,Expression<Func<T,bool>> where=null)
+        protected string BaseYeniKodVer(KartTuru kartTuru, Expression<Func<T, string>> filter, Expression<Func<T, bool>> where = null)
         {
             GeneralFunctions.CreateUnitOfWork<T, TContext>(ref _uow);
-           return _uow.Rep.YeniKodVer(kartTuru,filter,where);
+            return _uow.Rep.YeniKodVer(kartTuru, filter, where);
 
         }
 
         #region IDisposable dispose
 
-       
 
-  
-  
+
+
+
         public void Dispose()
         {
             //komple bll i dispose edersek hata alırız sadece unitofwork  u dispose edeceğiz.
             _ctrl?.Dispose();
             _uow.Dispose();
-         
+
 
         }
         #endregion
