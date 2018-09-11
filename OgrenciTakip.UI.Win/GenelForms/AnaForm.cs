@@ -11,6 +11,7 @@ using DevExpress.XtraBars;
 using OgrenciTakip.UI.Win.Forms.OkulForms;
 using OgrenciTakip.UI.Win.Show;
 using OgrenciTakip.UI.Win.Forms.IlForms;
+using OgrenciTakip.UI.Win.Forms.AileBilgiForms;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
@@ -47,6 +48,10 @@ namespace OgrenciTakip.UI.Win.GenelForms
             else if (e.Item == btnIlKartlari)
             {
                 ShowListForms<IlListForm>.ShowListForm(COMMON.Enums.KartTuru.Il);
+            }
+            else if(e.Item==btnAileBilgiKartlari)
+            {
+                ShowListForms<AileBilgiListForm>.ShowListForm(COMMON.Enums.KartTuru.AileBilgi);
             }
         }
 

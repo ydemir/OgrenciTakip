@@ -13,7 +13,7 @@ using OgrenciTakip.COMMON.Enums;
 
 namespace OgrenciTakip.BLL.General
 {
-    public class OkulBll : BaseGenelBll<Okul>,IBaseGenelBll, IBaseCommonDll
+    public class OkulBll : BaseGenelBll<Okul>,IBaseGenelBll, IBaseCommonBll
     {
         public OkulBll(): base(KartTuru.Okul) { }
 

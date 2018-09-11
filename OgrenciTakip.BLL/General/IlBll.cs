@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace OgrenciTakip.BLL.General
 {
-    public class IlBll : BaseGenelBll<Il>,IBaseGenelBll,IBaseCommonDll
+    public class IlBll : BaseGenelBll<Il>,IBaseGenelBll,IBaseCommonBll
     {
         public IlBll():base (KartTuru.Il) { }
 

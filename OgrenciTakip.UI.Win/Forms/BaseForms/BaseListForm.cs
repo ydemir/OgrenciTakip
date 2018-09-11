@@ -224,7 +224,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
                 return;
             }
 
-            if (!((IBaseCommonDll)Bll).Delete(entity))
+            if (!((IBaseCommonBll)Bll).Delete(entity))
             {
                 return;
             }

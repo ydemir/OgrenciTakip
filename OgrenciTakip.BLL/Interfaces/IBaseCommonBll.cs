@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OgrenciTakip.BLL.Interfaces
 {
-  public  interface IBaseCommonDll
+  public  interface IBaseCommonBll
     {
         bool Delete(BaseEntity entity);
     }

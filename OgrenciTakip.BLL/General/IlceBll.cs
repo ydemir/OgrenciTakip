@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace OgrenciTakip.BLL.General
 {
-    public class IlceBll : BaseGenelBll<Ilce>, IBaseCommonDll
+    public class IlceBll : BaseGenelBll<Ilce>, IBaseCommonBll
     {
         public IlceBll(): base(KartTuru.Ilce) { }
 

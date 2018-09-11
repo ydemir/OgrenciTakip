@@ -67,6 +67,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AileBilgiForms\AileBilgiEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AileBilgiForms\AileBilgiEditForm.Designer.cs">
+      <DependentUpon>AileBilgiEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AileBilgiForms\AileBilgiListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AileBilgiForms\AileBilgiListForm.Designer.cs">
+      <DependentUpon>AileBilgiListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BaseForms\BaseListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +254,12 @@
     <Compile Include="UserControls\Navigators\SmallNavigator.Designer.cs">
       <DependentUpon>SmallNavigator.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AileBilgiForms\AileBilgiEditForm.resx">
+      <DependentUpon>AileBilgiEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AileBilgiForms\AileBilgiListForm.resx">
+      <DependentUpon>AileBilgiListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BaseForms\BaseListForm.resx">
       <DependentUpon>BaseListForm.cs</DependentUpon>
     </EmbeddedResource>

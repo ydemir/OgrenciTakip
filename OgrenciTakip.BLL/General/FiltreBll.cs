@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace OgrenciTakip.BLL.General
 {
-    public class FiltreBll : BaseGenelBll<Filtre>, IBaseCommonDll
+    public class FiltreBll : BaseGenelBll<Filtre>, IBaseCommonBll
     {
         public FiltreBll():base(KartTuru.Filtre) { }
 

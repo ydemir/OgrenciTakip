@@ -110,7 +110,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
 
         private void EntityDelete()
         {
-            if (!((IBaseCommonDll)Bll).Delete(OldEntity))
+            if (!((IBaseCommonBll)Bll).Delete(OldEntity))
             {
                 return;
             }
