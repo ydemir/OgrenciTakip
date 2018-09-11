@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OgrenciTakip.BLL.Functions
 {
-  public static class ValidationFunctions
+    public static class ValidationFunctions
     {
         public static List<PropertyAttribute<TAttribute>> GetPropertyAttributesFromType<TAttribute>(this Type entityType) where TAttribute : Attribute
         {

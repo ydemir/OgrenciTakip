@@ -33,5 +33,6 @@ namespace OgrenciTakip.DATA.Contexts
         public DbSet<Filtre> Filtre { get; set; }
         public DbSet<AileBilgi> AileBilgi { get; set; }
         public DbSet<IptalNedeni> IptalNedeni { get; set; }
+        public DbSet<YabanciDil> YabanciDil { get; set; }
     }
 }

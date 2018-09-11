@@ -61,6 +61,7 @@
     <Compile Include="Entities\Ilce.cs" />
     <Compile Include="Entities\IptalNedeni.cs" />
     <Compile Include="Entities\Okul.cs" />
+    <Compile Include="Entities\YabanciDil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
