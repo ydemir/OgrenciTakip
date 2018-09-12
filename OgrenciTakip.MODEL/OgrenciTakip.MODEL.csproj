@@ -60,6 +60,7 @@
     <Compile Include="Entities\Il.cs" />
     <Compile Include="Entities\Ilce.cs" />
     <Compile Include="Entities\IptalNedeni.cs" />
+    <Compile Include="Entities\Kontenjan.cs" />
     <Compile Include="Entities\Okul.cs" />
     <Compile Include="Entities\Tesvik.cs" />
     <Compile Include="Entities\YabanciDil.cs" />

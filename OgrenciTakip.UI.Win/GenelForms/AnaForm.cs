@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DevExpress.XtraBars;
+﻿using DevExpress.XtraBars;
 using OgrenciTakip.UI.Win.Forms.OkulForms;
 using OgrenciTakip.UI.Win.Show;
 using OgrenciTakip.UI.Win.Forms.IlForms;
@@ -15,6 +6,7 @@ using OgrenciTakip.UI.Win.Forms.AileBilgiForms;
 using OgrenciTakip.UI.Win.Forms.IptalNedeniForms;
 using OgrenciTakip.UI.Win.Forms.YabanciDilForms;
 using OgrenciTakip.UI.Win.Forms.TesvikForms;
+using OgrenciTakip.UI.Win.Forms.KontenjanForms;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
@@ -67,6 +59,10 @@ namespace OgrenciTakip.UI.Win.GenelForms
             else if (e.Item == btnTesvikKartlari)
             {
                 ShowListForms<TesvikListForm>.ShowListForm(COMMON.Enums.KartTuru.Tesvik);
+            }
+            else if (e.Item == btnKontenjanKartlari)
+            {
+                ShowListForms<KontenjanListForm>.ShowListForm(COMMON.Enums.KartTuru.Kontenjan);
             }
         }
 

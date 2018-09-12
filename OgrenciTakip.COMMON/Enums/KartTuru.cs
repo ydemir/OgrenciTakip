@@ -22,7 +22,9 @@ namespace OgrenciTakip.COMMON.Enums
         [Description("Yabancı Dil Kartı")]
         YabanciDil = 7,
         [Description("Teşvik Kartı")]
-        Tesvik = 8
+        Tesvik = 8,
+        [Description("Kontenjan Kartları")]
+        Kontenjan = 9
     }
 
 }
