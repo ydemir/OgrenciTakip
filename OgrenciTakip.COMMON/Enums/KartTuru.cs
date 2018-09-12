@@ -20,7 +20,9 @@ namespace OgrenciTakip.COMMON.Enums
         [Description("Iptal Nedeni Kartı")]
         IptalNedeni = 6,
         [Description("Yabancı Dil Kartı")]
-        YabanciDil = 7
+        YabanciDil = 7,
+        [Description("Teşvik Kartı")]
+        Tesvik = 8
     }
 
 }

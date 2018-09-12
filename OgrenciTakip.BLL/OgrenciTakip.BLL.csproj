@@ -60,6 +60,7 @@
     <Compile Include="General\IlceBll.cs" />
     <Compile Include="General\IptalNedeniBll.cs" />
     <Compile Include="General\OkulBll.cs" />
+    <Compile Include="General\TesvikBll.cs" />
     <Compile Include="General\YabanciDilBll.cs" />
     <Compile Include="Interfaces\IBaseBll.cs" />
     <Compile Include="Interfaces\IBaseCommonBll.cs" />

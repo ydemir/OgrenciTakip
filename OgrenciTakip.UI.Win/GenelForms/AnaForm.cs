@@ -14,6 +14,7 @@ using OgrenciTakip.UI.Win.Forms.IlForms;
 using OgrenciTakip.UI.Win.Forms.AileBilgiForms;
 using OgrenciTakip.UI.Win.Forms.IptalNedeniForms;
 using OgrenciTakip.UI.Win.Forms.YabanciDilForms;
+using OgrenciTakip.UI.Win.Forms.TesvikForms;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
@@ -62,6 +63,10 @@ namespace OgrenciTakip.UI.Win.GenelForms
             else if (e.Item == btnYabanciDilKartlari)
             {
                 ShowListForms<YabanciDilListForm>.ShowListForm(COMMON.Enums.KartTuru.YabanciDil);
+            }
+            else if (e.Item == btnTesvikKartlari)
+            {
+                ShowListForms<TesvikListForm>.ShowListForm(COMMON.Enums.KartTuru.Tesvik);
             }
         }
 
