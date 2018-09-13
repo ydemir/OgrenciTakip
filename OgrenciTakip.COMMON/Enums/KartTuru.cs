@@ -24,7 +24,9 @@ namespace OgrenciTakip.COMMON.Enums
         [Description("Teşvik Kartı")]
         Tesvik = 8,
         [Description("Kontenjan Kartları")]
-        Kontenjan = 9
+        Kontenjan = 9,
+        [Description("Rehber Kartları")]
+        Rehber = 10
     }
 
 }

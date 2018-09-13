@@ -7,6 +7,7 @@ using OgrenciTakip.UI.Win.Forms.IptalNedeniForms;
 using OgrenciTakip.UI.Win.Forms.YabanciDilForms;
 using OgrenciTakip.UI.Win.Forms.TesvikForms;
 using OgrenciTakip.UI.Win.Forms.KontenjanForms;
+using OgrenciTakip.UI.Win.Forms.RehberForms;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
@@ -63,6 +64,10 @@ namespace OgrenciTakip.UI.Win.GenelForms
             else if (e.Item == btnKontenjanKartlari)
             {
                 ShowListForms<KontenjanListForm>.ShowListForm(COMMON.Enums.KartTuru.Kontenjan);
+            }
+            else if (e.Item == btnRehberKartlari)
+            {
+                ShowListForms<RehberListForm>.ShowListForm(COMMON.Enums.KartTuru.Rehber);
             }
         }
 

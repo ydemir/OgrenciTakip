@@ -36,5 +36,6 @@ namespace OgrenciTakip.DATA.Contexts
         public DbSet<YabanciDil> YabanciDil { get; set; }
         public DbSet<Tesvik> Tesvik { get; set; }
         public DbSet<Kontenjan> Kontenjan { get; set; }
+        public DbSet<Rehber> Rehber { get; set; }
     }
 }
