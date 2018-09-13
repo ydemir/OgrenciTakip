@@ -62,6 +62,7 @@
     <Compile Include="General\KontenjanBll.cs" />
     <Compile Include="General\OkulBll.cs" />
     <Compile Include="General\RehberBll.cs" />
+    <Compile Include="General\SinifGrupBll.cs" />
     <Compile Include="General\TesvikBll.cs" />
     <Compile Include="General\YabanciDilBll.cs" />
     <Compile Include="Interfaces\IBaseBll.cs" />

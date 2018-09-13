@@ -71,7 +71,7 @@
             // ribbonControl
             // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
-            this.ribbonControl.Size = new System.Drawing.Size(376, 102);
+            this.ribbonControl.Size = new System.Drawing.Size(380, 102);
             this.ribbonControl.Toolbar.ShowCustomizeItem = false;
             // 
             // myDataLayoutControl
@@ -87,7 +87,7 @@
             this.myDataLayoutControl.Name = "myDataLayoutControl";
             this.myDataLayoutControl.OptionsFocus.EnableAutoTabOrder = false;
             this.myDataLayoutControl.Root = this.layoutControlGroup1;
-            this.myDataLayoutControl.Size = new System.Drawing.Size(376, 165);
+            this.myDataLayoutControl.Size = new System.Drawing.Size(380, 166);
             this.myDataLayoutControl.TabIndex = 0;
             this.myDataLayoutControl.Text = "myDataLayoutControl1";
             // 
@@ -132,7 +132,7 @@
             // tglDurum
             // 
             this.tglDurum.EnterMoveNextControl = true;
-            this.tglDurum.Location = new System.Drawing.Point(269, 12);
+            this.tglDurum.Location = new System.Drawing.Point(273, 12);
             this.tglDurum.MenuManager = this.ribbonControl;
             this.tglDurum.Name = "tglDurum";
             this.tglDurum.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon;
@@ -156,7 +156,7 @@
             this.txtAciklama.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtAciklama.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtAciklama.Properties.MaxLength = 500;
-            this.txtAciklama.Size = new System.Drawing.Size(299, 45);
+            this.txtAciklama.Size = new System.Drawing.Size(303, 46);
             this.txtAciklama.StatusBarAciklama = "Açıklama Giriniz.";
             this.txtAciklama.StyleController = this.myDataLayoutControl;
             this.txtAciklama.TabIndex = 3;
@@ -170,7 +170,7 @@
             this.txtAdiSoyadi.Properties.AppearanceFocused.BackColor = System.Drawing.Color.LightCyan;
             this.txtAdiSoyadi.Properties.AppearanceFocused.Options.UseBackColor = true;
             this.txtAdiSoyadi.Properties.MaxLength = 50;
-            this.txtAdiSoyadi.Size = new System.Drawing.Size(299, 20);
+            this.txtAdiSoyadi.Size = new System.Drawing.Size(303, 20);
             this.txtAdiSoyadi.StatusBarAciklama = "Rehber Adı ve Soyadı Giriniz.";
             this.txtAdiSoyadi.StyleController = this.myDataLayoutControl;
             this.txtAdiSoyadi.TabIndex = 0;
@@ -232,7 +232,7 @@
             rowDefinition3,
             rowDefinition4,
             rowDefinition5});
-            this.layoutControlGroup1.Size = new System.Drawing.Size(376, 165);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(380, 166);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -255,7 +255,7 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.OptionsTableLayoutItem.ColumnSpan = 3;
             this.layoutControlItem2.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlItem2.Size = new System.Drawing.Size(356, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(360, 24);
             this.layoutControlItem2.Text = "Adı Soyadı";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(50, 13);
             // 
@@ -268,7 +268,7 @@
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.OptionsTableLayoutItem.ColumnSpan = 3;
             this.layoutControlItem5.OptionsTableLayoutItem.RowIndex = 4;
-            this.layoutControlItem5.Size = new System.Drawing.Size(356, 49);
+            this.layoutControlItem5.Size = new System.Drawing.Size(360, 50);
             this.layoutControlItem5.Text = "Açıklama";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(50, 13);
             // 
@@ -277,7 +277,7 @@
             this.layoutControlItem6.AppearanceItemCaption.ForeColor = System.Drawing.Color.Maroon;
             this.layoutControlItem6.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem6.Control = this.tglDurum;
-            this.layoutControlItem6.Location = new System.Drawing.Point(257, 0);
+            this.layoutControlItem6.Location = new System.Drawing.Point(261, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.OptionsTableLayoutItem.ColumnIndex = 2;
             this.layoutControlItem6.Size = new System.Drawing.Size(99, 24);
@@ -312,8 +312,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 298);
+            this.ClientSize = new System.Drawing.Size(380, 299);
             this.Controls.Add(this.myDataLayoutControl);
+            this.MinimumSize = new System.Drawing.Size(390, 300);
             this.Name = "RehberEditForm";
             this.Text = "Rehber Kartı";
             this.Controls.SetChildIndex(this.ribbonControl, 0);
