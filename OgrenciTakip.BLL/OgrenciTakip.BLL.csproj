@@ -66,6 +66,7 @@
     <Compile Include="General\SinifGrupBll.cs" />
     <Compile Include="General\TesvikBll.cs" />
     <Compile Include="General\YabanciDilBll.cs" />
+    <Compile Include="General\YakinlikBll.cs" />
     <Compile Include="Interfaces\IBaseBll.cs" />
     <Compile Include="Interfaces\IBaseCommonBll.cs" />
     <Compile Include="Interfaces\IBaseGenelBll.cs" />

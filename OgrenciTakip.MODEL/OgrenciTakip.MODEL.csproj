@@ -67,6 +67,7 @@
     <Compile Include="Entities\SinifGrup.cs" />
     <Compile Include="Entities\Tesvik.cs" />
     <Compile Include="Entities\YabanciDil.cs" />
+    <Compile Include="Entities\Yakinlik.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

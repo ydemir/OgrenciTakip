@@ -27,39 +27,39 @@ namespace OgrenciTakip.UI.Win.Forms.YabanciDilForms
             EventsLoad();
         }
 
-        protected internal override void Yukle()
-        {
-            OldEntity = BaseIslemTuru == COMMON.Enums.IslemTuru.EntityInsert ? new YabanciDil() : ((YabanciDilBll)Bll).Single(FilterFunctions.Filter<YabanciDil>(Id));
-            NesneyiControllereBagla();
-
-            if (BaseIslemTuru != COMMON.Enums.IslemTuru.EntityInsert)
+            protected internal override void Yukle()
             {
-                return;
+                OldEntity = BaseIslemTuru == COMMON.Enums.IslemTuru.EntityInsert ? new YabanciDil() : ((YabanciDilBll)Bll).Single(FilterFunctions.Filter<YabanciDil>(Id));
+                NesneyiControllereBagla();
+
+                if (BaseIslemTuru != COMMON.Enums.IslemTuru.EntityInsert)
+                {
+                    return;
+                }
+                Id = BaseIslemTuru.IdOlustur(OldEntity);
+                txtKod.Text = ((YabanciDilBll)Bll).YeniKodVer();
+                txtDilAdi.Focus();
             }
-            Id = BaseIslemTuru.IdOlustur(OldEntity);
-            txtKod.Text = ((YabanciDilBll)Bll).YeniKodVer();
-            txtDilAdi.Focus();
-        }
-        protected override void NesneyiControllereBagla()
-        {
-            var entity = (YabanciDil)OldEntity;
-            txtDilAdi.Text = entity.DilAdi;
-            txtKod.Text = entity.Kod;
-            txtAciklama.Text = entity.Aciklama;
-            tglDurum.IsOn = entity.Durum;
-        }
-        protected override void GuncelNesneOlustur()
-        {
-            CurrentEntity = new YabanciDil
+            protected override void NesneyiControllereBagla()
             {
-                Id = Id,
-                Kod = txtKod.Text,
-                DilAdi = txtDilAdi.Text,
-                Aciklama = txtAciklama.Text,
-                Durum = tglDurum.IsOn
-            };
+                var entity = (YabanciDil)OldEntity;
+                txtDilAdi.Text = entity.DilAdi;
+                txtKod.Text = entity.Kod;
+                txtAciklama.Text = entity.Aciklama;
+                tglDurum.IsOn = entity.Durum;
+            }
+            protected override void GuncelNesneOlustur()
+            {
+                CurrentEntity = new YabanciDil
+                {
+                    Id = Id,
+                    Kod = txtKod.Text,
+                    DilAdi = txtDilAdi.Text,
+                    Aciklama = txtAciklama.Text,
+                    Durum = tglDurum.IsOn
+                };
 
-            ButtonEnabledDurumu();
-        }
+                ButtonEnabledDurumu();
+            }
     }
 }
