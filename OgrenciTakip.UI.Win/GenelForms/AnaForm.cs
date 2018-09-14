@@ -11,6 +11,7 @@ using OgrenciTakip.UI.Win.Forms.RehberForms;
 using OgrenciTakip.UI.Win.Forms.SinifGrupForms;
 using OgrenciTakip.UI.Win.Forms.MeslekForms;
 using OgrenciTakip.UI.Win.Forms.YakinlikForms;
+using OgrenciTakip.UI.Win.Forms.IsyeriForms;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
@@ -83,6 +84,10 @@ namespace OgrenciTakip.UI.Win.GenelForms
             else if (e.Item == btnYakinlikKartlari)
             {
                 ShowListForms<YakinlikListForm>.ShowListForm(COMMON.Enums.KartTuru.Yakinlik);
+            }
+            else if (e.Item == btnIsyeriKarlari)
+            {
+                ShowListForms<IsyeriListForm>.ShowListForm(COMMON.Enums.KartTuru.Isyeri);
             }
         }
 
