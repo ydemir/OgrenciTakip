@@ -41,5 +41,6 @@ namespace OgrenciTakip.DATA.Contexts
         public DbSet<Meslek> Meslek { get; set; }
         public DbSet<Yakinlik> Yakinlik { get; set; }
         public DbSet<Isyeri> Isyeri { get; set; }
+        public DbSet<Gorev> Gorev { get; set; }
     }
 }

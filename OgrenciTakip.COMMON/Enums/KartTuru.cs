@@ -34,7 +34,9 @@ namespace OgrenciTakip.COMMON.Enums
         [Description("Yakınlık Kartları")]
         Yakinlik = 13,
         [Description("İşyeri Kartları")]
-        Isyeri = 13
+        Isyeri = 13,
+        [Description("Görev Kartları")]
+        Gorev = 13
     }
 
 }

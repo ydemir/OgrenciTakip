@@ -57,6 +57,7 @@
     <Compile Include="Entities\Base\Interfaces\IBaseEntity.cs" />
     <Compile Include="Entities\DokumParametreleri.cs" />
     <Compile Include="Entities\Filtre.cs" />
+    <Compile Include="Entities\Gorev.cs" />
     <Compile Include="Entities\Il.cs" />
     <Compile Include="Entities\Ilce.cs" />
     <Compile Include="Entities\IptalNedeni.cs" />
