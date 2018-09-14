@@ -56,6 +56,8 @@
     <Compile Include="Entities\Base\BaseHareketEntity.cs" />
     <Compile Include="Entities\Base\Interfaces\IBaseEntity.cs" />
     <Compile Include="Entities\DokumParametreleri.cs" />
+    <Compile Include="Entities\Donem.cs" />
+    <Compile Include="Entities\Evrak.cs" />
     <Compile Include="Entities\Filtre.cs" />
     <Compile Include="Entities\Gorev.cs" />
     <Compile Include="Entities\Il.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Entities\Okul.cs" />
     <Compile Include="Entities\Rehber.cs" />
     <Compile Include="Entities\SinifGrup.cs" />
+    <Compile Include="Entities\Sube.cs" />
     <Compile Include="Entities\Tesvik.cs" />
     <Compile Include="Entities\YabanciDil.cs" />
     <Compile Include="Entities\Yakinlik.cs" />

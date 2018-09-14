@@ -14,13 +14,16 @@ using OgrenciTakip.UI.Win.Forms.YakinlikForms;
 using OgrenciTakip.UI.Win.Forms.IsyeriForms;
 using OgrenciTakip.UI.Win.Forms.GorevForms;
 using OgrenciTakip.UI.Win.Forms.IndirimTuruForms;
+using OgrenciTakip.UI.Win.Forms.EvrakForms;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
     public partial class AnaForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        public static long DonemId = 1;
         public static string DonemAdi = "Dönem Bilgisi Bekleniyor...";
         public static string SubeAdi = "Şube Bilgisi Bekleniyor...";
+        public static long SubeId = 1;
         public AnaForm()
         {
             InitializeComponent();
@@ -99,6 +102,10 @@ namespace OgrenciTakip.UI.Win.GenelForms
             else if (e.Item == btnIndirimTuruKartlari)
             {
                 ShowListForms<IndirimTuruListForm>.ShowListForm(COMMON.Enums.KartTuru.IndirimTuru);
+            }
+            else if (e.Item == btnEvrakKartlari)
+            {
+                ShowListForms<EvrakListForm>.ShowListForm(COMMON.Enums.KartTuru.Evrak);
             }
         }
 
