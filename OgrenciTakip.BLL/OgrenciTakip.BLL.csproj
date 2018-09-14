@@ -59,6 +59,7 @@
     <Compile Include="General\GorevBll.cs" />
     <Compile Include="General\IlBll.cs" />
     <Compile Include="General\IlceBll.cs" />
+    <Compile Include="General\IndirimTuruBll.cs" />
     <Compile Include="General\IptalNedeniBll.cs" />
     <Compile Include="General\IsyeriBll.cs" />
     <Compile Include="General\KontenjanBll.cs" />

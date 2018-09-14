@@ -42,5 +42,6 @@ namespace OgrenciTakip.DATA.Contexts
         public DbSet<Yakinlik> Yakinlik { get; set; }
         public DbSet<Isyeri> Isyeri { get; set; }
         public DbSet<Gorev> Gorev { get; set; }
+        public DbSet<IndirimTuru> IndirimTuru { get; set; }
     }
 }
