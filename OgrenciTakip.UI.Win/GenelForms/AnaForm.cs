@@ -16,6 +16,7 @@ using OgrenciTakip.UI.Win.Forms.GorevForms;
 using OgrenciTakip.UI.Win.Forms.IndirimTuruForms;
 using OgrenciTakip.UI.Win.Forms.EvrakForms;
 using OgrenciTakip.UI.Win.Forms.PromosyonForms;
+using OgrenciTakip.UI.Win.Forms.ServisForms;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
@@ -111,6 +112,10 @@ namespace OgrenciTakip.UI.Win.GenelForms
             else if (e.Item == btnPromosyonKartlari)
             {
                 ShowListForms<PromosyonListForm>.ShowListForm(COMMON.Enums.KartTuru.Promosyon);
+            }
+            else if (e.Item == btnServisYeriKartlari)
+            {
+                ShowListForms<ServisListForm>.ShowListForm(COMMON.Enums.KartTuru.Servis);
             }
         }
 

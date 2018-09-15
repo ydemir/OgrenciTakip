@@ -17,6 +17,9 @@ namespace OgrenciTakip.UI.Win.UserControls.Controls
         {
             Properties.AppearanceFocused.BackColor = Color.LightCyan;
             Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+           
+            Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            Properties.DisplayFormat.FormatString = "n2";
             Properties.EditMask = "n2";
         }
 
