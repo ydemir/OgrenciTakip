@@ -68,6 +68,7 @@
     <Compile Include="Entities\Kontenjan.cs" />
     <Compile Include="Entities\Meslek.cs" />
     <Compile Include="Entities\Okul.cs" />
+    <Compile Include="Entities\Promosyon.cs" />
     <Compile Include="Entities\Rehber.cs" />
     <Compile Include="Entities\SinifGrup.cs" />
     <Compile Include="Entities\Sube.cs" />

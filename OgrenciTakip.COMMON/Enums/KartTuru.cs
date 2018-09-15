@@ -41,6 +41,8 @@ namespace OgrenciTakip.COMMON.Enums
         IndirimTuru = 16,
         [Description("Evrak Kartı")]
         Evrak = 17,
+        [Description("Promosyon Kartları")]
+        Promosyon = 18,
     }
 
 }

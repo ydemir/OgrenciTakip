@@ -223,6 +223,18 @@
     <Compile Include="Forms\OkulForms\OkulListForm.Designer.cs">
       <DependentUpon>OkulListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PromosyonForms\PromosyonEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PromosyonForms\PromosyonEditForm.Designer.cs">
+      <DependentUpon>PromosyonEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PromosyonForms\PromosyonListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PromosyonForms\PromosyonListForm.Designer.cs">
+      <DependentUpon>PromosyonListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RehberForms\RehberEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -475,6 +487,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\OkulForms\OkulListForm.resx">
       <DependentUpon>OkulListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PromosyonForms\PromosyonEditForm.resx">
+      <DependentUpon>PromosyonEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PromosyonForms\PromosyonListForm.resx">
+      <DependentUpon>PromosyonListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RehberForms\RehberEditForm.resx">
       <DependentUpon>RehberEditForm.cs</DependentUpon>
