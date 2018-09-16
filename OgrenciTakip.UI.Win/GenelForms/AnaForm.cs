@@ -21,6 +21,7 @@ using OgrenciTakip.UI.Win.Forms.SinifForms;
 using OgrenciTakip.UI.Win.Forms.HizmetTuruForms;
 using System;
 using OgrenciTakip.UI.Win.Forms.HizmetForms;
+using OgrenciTakip.UI.Win.Forms.KasaForms;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
@@ -139,6 +140,11 @@ namespace OgrenciTakip.UI.Win.GenelForms
             else if (e.Item == btnHizmetKartlari)
             {
                 ShowListForms<HizmetListForm>.ShowListForm(COMMON.Enums.KartTuru.Hizmet);
+            }
+
+            else if (e.Item == btnKasaKartlari)
+            {
+                ShowListForms<KasaListForm>.ShowListForm(COMMON.Enums.KartTuru.Kasa);
             }
         }
 
