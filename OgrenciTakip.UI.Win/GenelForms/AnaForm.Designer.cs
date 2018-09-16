@@ -51,11 +51,11 @@
             this.btnHizmetTuruKartlari = new DevExpress.XtraBars.BarButtonItem();
             this.btnHizmetKartlari = new DevExpress.XtraBars.BarButtonItem();
             this.btnKasaKartlari = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBankaKartlari = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnBankaKartlari = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +88,7 @@
             this.btnKasaKartlari,
             this.btnBankaKartlari});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 25;
+            this.ribbonControl.MaxItemId = 26;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -221,6 +221,12 @@
             this.btnKasaKartlari.Id = 23;
             this.btnKasaKartlari.Name = "btnKasaKartlari";
             // 
+            // btnBankaKartlari
+            // 
+            this.btnBankaKartlari.Caption = "Banka Kartları";
+            this.btnBankaKartlari.Id = 24;
+            this.btnBankaKartlari.Name = "btnBankaKartlari";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -264,12 +270,6 @@
             // xtraTabbedMdiManager
             // 
             this.xtraTabbedMdiManager.MdiParent = this;
-            // 
-            // btnBankaKartlari
-            // 
-            this.btnBankaKartlari.Caption = "Banka Kartları";
-            this.btnBankaKartlari.Id = 24;
-            this.btnBankaKartlari.Name = "btnBankaKartlari";
             // 
             // AnaForm
             // 

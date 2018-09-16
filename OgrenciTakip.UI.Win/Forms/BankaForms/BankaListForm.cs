@@ -14,6 +14,8 @@ using OgrenciTakip.UI.Win.Show;
 using OgrenciTakip.UI.Win.Functions;
 using OgrenciTakip.MODEL.Entities;
 using DevExpress.XtraBars;
+using OgrenciTakip.UI.Win.Forms.BankaSubeForms;
+using OgrenciTakip.MODEL.Dto;
 
 namespace OgrenciTakip.UI.Win.Forms.BankaForms
 {
@@ -47,15 +49,15 @@ namespace OgrenciTakip.UI.Win.Forms.BankaForms
             tablo.GridControl.DataSource = ((BankaBll)Bll).List(FilterFunctions.Filter<Banka>(AktifKartlariGoster));
         }
 
-        //protected override void BagliKartAc()
-        //{
+        protected override void BagliKartAc()
+        {
 
-        //    var entity = Tablo.GetRow<Il>();
-        //    if (entity == null)
-        //    {
-        //        return;
-        //    }
-        //    ShowListForms<IlceListForm>.ShowListForm(COMMON.Enums.KartTuru.Ilce, entity.Id, entity.IlAdi);
-        //}
+            var entity = Tablo.GetRow<BankaL>();
+            if (entity == null)
+            {
+                return;
+            }
+            ShowListForms<BankaSubeListForm>.ShowListForm(COMMON.Enums.KartTuru.BankaSube, entity.Id, entity.BankaAdi);
+        }
     }
 }
