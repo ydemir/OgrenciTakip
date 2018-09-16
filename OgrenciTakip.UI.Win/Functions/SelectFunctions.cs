@@ -1,5 +1,6 @@
 ﻿using OgrenciTakip.COMMON.Enums;
 using OgrenciTakip.MODEL.Entities;
+using OgrenciTakip.UI.Win.Forms.HizmetTuruForms;
 using OgrenciTakip.UI.Win.Forms.IlceForms;
 using OgrenciTakip.UI.Win.Forms.IlForms;
 using OgrenciTakip.UI.Win.Forms.SinifGrupForms;
@@ -65,6 +66,16 @@ namespace OgrenciTakip.UI.Win.Functions
                         {
                             _btnEdit.Id = entity.Id;
                             _btnEdit.EditValue = entity.GrupAdi;
+                        }
+                    }
+                    break;
+                case "txtHizmetTuru":
+                    {
+                        var entity = (HizmetTuru)ShowListForms<HizmetTuruListForm>.ShowDialogListForm(_kartTuru, _btnEdit.Id);
+                        if (entity != null)
+                        {
+                            _btnEdit.Id = entity.Id;
+                            _btnEdit.EditValue = entity.HizmetTuruAdi;
                         }
                     }
                     break;

@@ -19,6 +19,8 @@ using OgrenciTakip.UI.Win.Forms.PromosyonForms;
 using OgrenciTakip.UI.Win.Forms.ServisForms;
 using OgrenciTakip.UI.Win.Forms.SinifForms;
 using OgrenciTakip.UI.Win.Forms.HizmetTuruForms;
+using System;
+using OgrenciTakip.UI.Win.Forms.HizmetForms;
 
 namespace OgrenciTakip.UI.Win.GenelForms
 {
@@ -28,6 +30,13 @@ namespace OgrenciTakip.UI.Win.GenelForms
         public static string DonemAdi = "Dönem Bilgisi Bekleniyor...";
         public static string SubeAdi = "Şube Bilgisi Bekleniyor...";
         public static long SubeId = 1;
+
+        public static DateTime EgitimBaslamaTarihi = new DateTime(2017, 09, 15);
+        public static DateTime DonemBitisTarihi = new DateTime(2018, 06, 30);
+
+        public static bool GunTarihininOncesininHizmetBaslamaTarihiGirilebilir = true;
+        public static bool GunTarihininSonrasinaHizmetBaslamaTarihiGirilebilir = true;
+
         public AnaForm()
         {
             InitializeComponent();
@@ -126,6 +135,10 @@ namespace OgrenciTakip.UI.Win.GenelForms
             else if (e.Item == btnHizmetTuruKartlari)
             {
                 ShowListForms<HizmetTuruListForm>.ShowListForm(COMMON.Enums.KartTuru.HizmetTuru);
+            }
+            else if (e.Item == btnHizmetKartlari)
+            {
+                ShowListForms<HizmetListForm>.ShowListForm(COMMON.Enums.KartTuru.Hizmet);
             }
         }
 
