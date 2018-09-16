@@ -49,5 +49,6 @@ namespace OgrenciTakip.DATA.Contexts
         public DbSet<Promosyon> Promosyon { get; set; }
         public DbSet<Servis> Servis { get; set; }
         public DbSet<Sinif> Sinif { get; set; }
+        public DbSet<HizmetTuru> HizmetTuru { get; set; }
     }
 }
