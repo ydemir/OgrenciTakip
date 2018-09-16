@@ -50,6 +50,7 @@
     <Compile Include="Attributes\Kod.cs" />
     <Compile Include="Attributes\ZorunluAlan.cs" />
     <Compile Include="Dto\OkulDto.cs" />
+    <Compile Include="Dto\SinifDto.cs" />
     <Compile Include="Entities\AileBilgi.cs" />
     <Compile Include="Entities\Base\BaseEntity.cs" />
     <Compile Include="Entities\Base\BaseEntityDurum.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Entities\Promosyon.cs" />
     <Compile Include="Entities\Rehber.cs" />
     <Compile Include="Entities\Servis.cs" />
+    <Compile Include="Entities\Sinif.cs" />
     <Compile Include="Entities\SinifGrup.cs" />
     <Compile Include="Entities\Sube.cs" />
     <Compile Include="Entities\Tesvik.cs" />

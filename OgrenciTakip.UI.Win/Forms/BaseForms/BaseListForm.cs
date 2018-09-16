@@ -67,6 +67,7 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             Tablo.EndSorting += Tablo_EndSorting;
             Tablo.FilterEditorCreated += Tablo_FilterEditorCreated;
             Tablo.ColumnFilterChanged += Tablo_ColumnFilterChanged;
+            Tablo.CustomDrawFooterCell += Tablo_CustomDrawFooterCell;
 
             //Forms Events
 
@@ -76,6 +77,8 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             LocationChanged += BaseListForm_LocationChanged;
             SizeChanged += BaseListForm_SizeChanged;
         }
+
+       
 
         private void SutunGizleGoster()
         {
@@ -401,6 +404,19 @@ namespace OgrenciTakip.UI.Win.Forms.BaseForms
             if (string.IsNullOrEmpty(Tablo.ActiveFilterString))
             {
                 _filtreId = 0;
+            }
+        }
+
+        private void Tablo_CustomDrawFooterCell(object sender, FooterCellCustomDrawEventArgs e)
+        {
+            if (!Tablo.OptionsView.ShowFooter)
+            {
+                return;
+            }
+
+            if (e.Column.Summary.Count>0)
+            {
+                e.Appearance.TextOptions.HAlignment = e.Column.ColumnEdit.Appearance.HAlignment;
             }
         }
 

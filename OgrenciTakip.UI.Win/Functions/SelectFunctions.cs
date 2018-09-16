@@ -2,6 +2,7 @@
 using OgrenciTakip.MODEL.Entities;
 using OgrenciTakip.UI.Win.Forms.IlceForms;
 using OgrenciTakip.UI.Win.Forms.IlForms;
+using OgrenciTakip.UI.Win.Forms.SinifGrupForms;
 using OgrenciTakip.UI.Win.Show;
 using OgrenciTakip.UI.Win.UserControls.Controls;
 using System;
@@ -54,6 +55,16 @@ namespace OgrenciTakip.UI.Win.Functions
                         {
                             _btnEdit.Id = entity.Id;
                             _btnEdit.EditValue = entity.IlceAdi;
+                        }
+                    }
+                    break;
+                case "txtGrup":
+                    {
+                        var entity = (SinifGrup)ShowListForms<SinifGrupListForm>.ShowDialogListForm(_kartTuru, _btnEdit.Id);
+                        if (entity != null)
+                        {
+                            _btnEdit.Id = entity.Id;
+                            _btnEdit.EditValue = entity.GrupAdi;
                         }
                     }
                     break;
